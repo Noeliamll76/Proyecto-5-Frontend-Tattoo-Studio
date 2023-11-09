@@ -1,0 +1,16 @@
+.linkButtonDesign {
+    width: 7em;
+    height: 3em;
+
+    color: black;
+    transition: 0.4s;
+    margin-bottom: 0.5em;
+
+}
+
+.linkButtonDesign:hover {
+    
+    transition: 0.4s;
+    color: beige;
+    cursor: pointer;
+}
