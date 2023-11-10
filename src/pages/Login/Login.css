@@ -9,5 +9,27 @@
     justify-content: center;
     align-items: center;
 
-    background-color: greenyellow;
+    background-color: rgb(59, 126, 59);
+}
+
+.buttonSubmit {
+
+    height: 3em;
+    width: 8em;
+
+    border-radius: 1em;
+    background-color: rgb(185, 175, 25);
+    color: white;
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSubmit:hover {
+
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
 }
