@@ -2,13 +2,13 @@
     width: 100vw;
     height: 12vh;
 
-    background: darkgray;
+    background: rgb(8, 0, 0);
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 
-    color:darkslateblue;
+    color:darkred;
     
 }

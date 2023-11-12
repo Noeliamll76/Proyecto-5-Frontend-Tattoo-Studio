@@ -2,7 +2,7 @@
     width: 7em;
     height: 3em;
 
-    color: black;
+    color: darkgoldenrod;
     transition: 0.4s;
     margin-bottom: 0.5em;
 
@@ -10,7 +10,8 @@
 
 .linkButtonDesign:hover {
     
-    transition: 0.4s;
-    color: beige;
+    transform: scale(1.2);
+    transition: 0.8s;
+    color: wheat;
     cursor: pointer;
 }
