@@ -6,20 +6,22 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 
-    background-color: rgb(80, 39, 39);
-    color: wheat;
+    background-color: rgb(26, 12, 12);
+    color: whitesmoke;
 
 }
 
 .tattoosRoster {
 
-    /* display: grid;
-    grid-template-columns:repeat(auto-fill, minmax(5em, 1fr));
-    gap: 1em; */
-    display: flex;
-    flex-wrap: wrap;
+    /* display: grid;  */
+    /* grid-template-columns:repeat(auto-fill, minmax(5em, 1fr)); */
+    margin: 1em;
+    gap: 1em;
+    display: flex;  
+    flex-wrap: wrap; 
+    justify-content: center;
 
 }

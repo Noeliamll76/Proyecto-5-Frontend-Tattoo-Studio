@@ -1,8 +1,8 @@
 
 .tattooCardDesign {
 
-    height: 25em;
-    width: 25em;
+    height: 20em;
+    width: 20em;
 
     border-radius: 1em;
 
@@ -11,12 +11,13 @@
     align-items: center;
     flex-direction: column;
 
-    background-color: rgb(6, 45, 45);
+    background-color: rgb(54, 22, 22);
     border: 0.2 solid black;
 
     transition: 1s;
 
     margin: 1em;
+    
 }
 
 .tattooCardDesign:hover {
@@ -30,5 +31,5 @@
 
 .avatar {
     height: 15em;
-    width: 22em;
+    width: 19em;
 }
