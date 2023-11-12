@@ -55,36 +55,39 @@ export const Login = () => {
             }
         }
         logUser(credenciales)
-            .then(resultado => {
-                localStorage.setItem("token", (resultado.data.token))
-                setTimeout(() => {
-                    navigate("/");
-                }, 1000);
-            })
-            .catch(error => {
-                console.log(error);
-                setMsgError(error.message)
-            });
+        .then(resultado => {
+            localStorage.setItem("token", (resultado.data.token))
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
+        })
+        .catch(error => {
+            console.log (error.message)
+            setMsgError(error.message)
+        });
     }
-
+    
     return (
         <div className="loginDesign">
             <CustomInput
                 design={"inputDesign"}
                 type={"email"}
                 name={"email"}
-                placeholder={""}
+                placeholder={"email"}
                 functionProp={functionHandler}
                 functionBlur={errorCheck}
             />
+            <div className='errorMsg'>{credencialesError.emailError}</div>
             <CustomInput
                 design={"inputDesign"}
                 type={"password"}
                 name={"password"}
-                placeholder={""}
+                placeholder={"password min 4 characters"}
                 functionProp={functionHandler}
                 functionBlur={errorCheck}
             />
+            <div className='errorMsg'>{credencialesError.passwordError}</div>
+
             <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
             <div>{msgError}</div>
         </div>

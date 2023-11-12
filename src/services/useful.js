@@ -2,7 +2,6 @@
 export const validator = (type, value) => {
 
     switch (type) {
-
         case 'email':
         case 'correo':
         case 'mail':
@@ -22,7 +21,7 @@ export const validator = (type, value) => {
 
         case 'phone':
         case 'telefono':
-           if (! /(?=.*?[0-9])/.test(value)) {
+            if (! /(?=.*?[0-9])/.test(value)) {
                 return "Incorrect phone number";
             } else {
                 return "";
@@ -31,17 +30,18 @@ export const validator = (type, value) => {
         case 'password':
         case 'password2':
         case 'contraseña':
-            if (value.length < 8) {
-                return "Write 8 characters at least"
+            if (value.length < 4) {
+                return "Write 4 characters at least"
             } else {
 
                 //Checking the password format....
 
-                if (! /[\d()+-]/g.test(value)) {
-                    return "Invalid password format";
-                } else {
+                // if (! /[\d()+-]/g.test(value)) {
+                //     return "Invalid password format";
+                // } 
+                // else {
                     return "";
-                }
+                //  }
             }
-        }
+    }
 }

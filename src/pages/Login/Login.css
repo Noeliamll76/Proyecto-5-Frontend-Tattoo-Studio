@@ -12,6 +12,10 @@
     background-color: rgb(59, 126, 59);
 }
 
+.errorMsg {
+    color: red;
+}
+
 .buttonSubmit {
 
     height: 3em;

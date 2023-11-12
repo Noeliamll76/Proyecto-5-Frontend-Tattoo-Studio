@@ -11,3 +11,25 @@
 
     background-color: beige;
 }
+
+.cardSubmit {
+
+    height: 3em;
+    width: 8em;
+
+    
+    color: rgb(80, 34, 34);
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+}
+
+.cardSubmit:hover {
+
+    transition: 0.4s;
+    color: darkgreen;
+    cursor: pointer;
+}

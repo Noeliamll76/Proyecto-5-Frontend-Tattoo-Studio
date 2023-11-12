@@ -39,6 +39,7 @@ export const Register = () => {
       ...prevState,
       [e.target.name + 'Error']: error,
     }));
+    
   }
 
   const Submit = () => {
@@ -58,7 +59,7 @@ export const Register = () => {
       .then(
         resultado => {
           //si todo ha ido bien, redirigiremos a login...
-
+          console.log(resultado)
           setTimeout(() => {
             navigate("/login");
           }, 500)
@@ -73,16 +74,17 @@ export const Register = () => {
         design={`inputDesign ${userError.nameError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"name"}
-        placeholder={""}
+        placeholder={"Name and surname"}
         functionProp={functionHandler}
         functionBlur={errorCheck}
-      />
+        />
+        
       <div className='errorMsg'>{userError.nameError}</div>
       <CustomInput
         design={`inputDesign ${userError.emailError !== "" ? 'inputDesignError' : ''}`}
         type={"email"}
         name={"email"}
-        placeholder={""}
+        placeholder={"Email"}
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
@@ -91,7 +93,7 @@ export const Register = () => {
         design={`inputDesign ${userError.passwordError !== "" ? 'inputDesignError' : ''}`}
         type={"password"}
         name={"password"}
-        placeholder={""}
+        placeholder={"password min 8 characters"}
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
@@ -100,12 +102,12 @@ export const Register = () => {
         design={`inputDesign ${userError.phoneError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"phone"}
-        placeholder={""}
+        placeholder={"phone"}
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
       <div className='errorMsg'>{userError.phoneError}</div>
-      
+
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
     </div>
   )
