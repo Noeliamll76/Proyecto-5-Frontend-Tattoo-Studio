@@ -6,10 +6,14 @@ import { logUser } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import { validator } from "../../services/useful";
 
+import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+import { login } from "../userSlice";
 
 export const Login = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [msgError, setMsgError] = useState('');
 
     const [credenciales, setCredenciales] = useState({
@@ -56,7 +60,10 @@ export const Login = () => {
         }
         logUser(credenciales)
         .then(resultado => {
-            localStorage.setItem("token", (resultado.data.token))
+            // localStorage.setItem("token", (resultado.data.token))
+
+            localStorage.setItem("token", (resultado.data))
+            dispatch(login({ credentials: resultado.data }))
             setTimeout(() => {
                 navigate("/");
             }, 1000);
