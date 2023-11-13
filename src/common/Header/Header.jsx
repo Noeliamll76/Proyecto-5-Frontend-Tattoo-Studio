@@ -7,12 +7,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout, userData } from "../../pages/userSlice";
 import { useNavigate } from 'react-router-dom';
 
+
 export const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const rdxCredentials = useSelector(userData);
-console.log (`1 ${rdxCredentials.credentials.token}`)
+    
+
     const logOutMe = () => {
 
         dispatch(logout({ credentials: "" }))
@@ -23,8 +25,9 @@ console.log (`1 ${rdxCredentials.credentials.token}`)
 
     return (
         <div className="headerDesign">
+            <div></div>
+            <div><img className='logoHeader' src={"./img/logo.png"} /></div>
             <LinkButton path={"/"} title={"Home"} />
-
             {!rdxCredentials?.credentials.token ? (
                 <>
                     <LinkButton path={"/register"} title={"Register"} />
@@ -32,9 +35,9 @@ console.log (`1 ${rdxCredentials.credentials.token}`)
                 </>
             ) : (
                 <>
-                    <LinkButton path={"/profile"} title= {rdxCredentials.credentials.Name} />
+                    <LinkButton path={"/profile"} title= {rdxCredentials.credentials.data.name} />
                     <div onClick={logOutMe}>
-                        <LinkButton path={"/"} title={"log out"} />
+                        <LinkButton path={"/"} title={"Log out"} />
                     </div>
                 </>
             )}

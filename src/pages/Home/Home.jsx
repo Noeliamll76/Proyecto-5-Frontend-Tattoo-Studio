@@ -2,7 +2,7 @@
 import './Home.css'
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+// import background from "./img/fachada.jpg";
 
 export const Home = () => {
 
@@ -17,13 +17,21 @@ export const Home = () => {
     }
 
     return (
-        <div className="homeDesign">
+        <>
+            <div className="homeDesign"> 
 
-            <div className={`cardSubmit ${!change}`} onClick={callCardsClick}>
-                View gallery
-            </div>
-            
-        </div>
+            {/* <div 
+                // style={{ backgroundImage: `url(${background})` }}> */}
+{/* <img src={require(`${background}`)} alt="cover" width={260} height={160}/> */}
+                
+                <div className={`cardSubmit ${!change}`} onClick={callCardsClick}>
+                    View gallery
+                </div>
+            {/* </div> */}
+
+
+          </div> 
+        </>
     )
 }
 

@@ -60,9 +60,6 @@ export const Login = () => {
         }
         logUser(credenciales)
         .then(resultado => {
-            // localStorage.setItem("token", (resultado.data.token))
-
-            localStorage.setItem("token", (resultado.data))
             dispatch(login({ credentials: resultado.data }))
             setTimeout(() => {
                 navigate("/");
