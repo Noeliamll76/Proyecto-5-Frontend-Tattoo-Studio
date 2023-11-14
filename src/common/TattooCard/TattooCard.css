@@ -1,7 +1,7 @@
 
 .tattooCardDesign {
 
-    height: 20em;
+    height: 22em;
     width: 20em;
 
     border-radius: 1em;
@@ -11,7 +11,7 @@
     align-items: center;
     flex-direction: column;
 
-    background-color: rgb(54, 22, 22);
+    background-color: rgb(38, 36, 36);
     color: darkgoldenrod;
     border: 0.2 solid black;
 
@@ -28,7 +28,7 @@
 
 .selectedCard {
     background-color: darkgoldenrod;
-    color: rgb(54, 22, 22);
+    color: rgb(38, 36, 36);
 }
 
 .avatar {

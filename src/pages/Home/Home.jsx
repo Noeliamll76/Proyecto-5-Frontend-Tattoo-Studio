@@ -11,9 +11,9 @@ export const Home = () => {
 
     const callCardsClick = () => {
         setChange(!change)
-        setTimeout(() => {
+        // setTimeout(() => {
             navigate("/cards");
-        }, 1000);
+        // }, 400);
     }
 
     return (

@@ -16,6 +16,7 @@ export const Cards = () => {
                 .then(
                     tattoos => {
                          setTattoos(tattoos.data.data)
+                         console.log (tattoos.data)
                     }
                 )
                 .catch(error => {
@@ -41,7 +42,7 @@ export const Cards = () => {
                                 key={tattoo.id}
                                 description={tattoo.description}
                                 image={tattoo.image}
-                                createdBy_id={tattoo.createdBy_id}
+                                tattoo_artist={tattoo.tattoo_artist}
                                 selected={"selectedCard"}
                                 selectFunction={() => tellMe(tattoo)}
                             />)
