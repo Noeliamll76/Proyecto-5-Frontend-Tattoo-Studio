@@ -11,7 +11,7 @@
 
     background-color: darkgrey;
     color: whitesmoke;
-
+    overflow-y: scroll;
 }
 
 .tattoosRoster {

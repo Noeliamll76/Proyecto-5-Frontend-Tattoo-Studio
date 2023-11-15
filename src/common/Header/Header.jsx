@@ -13,14 +13,10 @@ export const Header = () => {
     const dispatch = useDispatch();
 
     const rdxCredentials = useSelector(userData);
-    
 
     const logOutMe = () => {
-
         dispatch(logout({ credentials: "" }))
-
         navigate("/")
-
     }
 
     return (
@@ -32,10 +28,12 @@ export const Header = () => {
                 <>
                     <LinkButton path={"/register"} title={"Register"} />
                     <LinkButton path={"/login"} title={"Login"} />
+                    <LinkButton path={"/profesional"} title={"Only professional"} />
                 </>
             ) : (
                 <>
-                    <LinkButton path={"/profile"} title= {rdxCredentials.credentials.data.name} />
+                    <LinkButton path={"/profile"} title={rdxCredentials.credentials.data.name} />
+
                     <div onClick={logOutMe}>
                         <LinkButton path={"/"} title={"Log out"} />
                     </div>

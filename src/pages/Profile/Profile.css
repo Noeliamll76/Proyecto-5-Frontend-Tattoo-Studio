@@ -11,3 +11,36 @@
 
     background-color: rgb(47, 172, 255);
 }
+
+.credentialsDesign {
+
+    height: 2em;
+    width: 15em;
+
+    border-radius: 1em;
+    border: 0.5 solid darkcyan;
+
+    margin-bottom: 3em;
+}
+
+.buttonSubmit {
+
+    height: 3em;
+    width: 8em;
+
+    border-radius: 1em;
+    background-color: rgb(185, 175, 25);
+    color: white;
+    font-weight: bolder;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonSubmit:hover {
+
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
+}
