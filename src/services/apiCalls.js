@@ -24,3 +24,7 @@ export const updateUser = async (token, body) => {
 export const registerAppointment = async (body) => {
    return await axios.post(`http://localhost:4000/appointment/register`, {headers:{Authorization:`Bearer ${token}`}});
 }
+
+export const logTattooArtist = async (body) => {
+   return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
+}

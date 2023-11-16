@@ -1,16 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
-import './Login.css'
+import './LogProfesional.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
-import { logUser } from "../../services/apiCalls";
+import { logTattooArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import { validator } from "../../services/useful";
 
-import { useDispatch } from "react-redux";  
-import { login } from "../userSlice";
+import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+import { login } from "../artistSlice";
 
-export const Login = () => {
+export const LogProfesional = () => {
 
+    console.log ("Estoy dentro de LogProfesional")
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -58,7 +59,7 @@ export const Login = () => {
                 return;
             }
         }
-        logUser(credenciales)
+        logTattooArtist(credenciales)
         .then(resultado => {
             dispatch(login({ credentials: resultado.data }))
             setTimeout(() => {

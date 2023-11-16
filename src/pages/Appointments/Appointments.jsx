@@ -75,7 +75,8 @@ export const Appointments = () => {
 
   return (
     <div className="appointmentDesign">
-      <CustomInput
+      <div>Id tattoo artist :
+        <CustomInput
         design={`inputDesign ${appointmentError.artist_idError !== "" ? 'inputDesignError' : ''}`}
         type={"number"}
         name={"artist_id"}
@@ -84,7 +85,9 @@ export const Appointments = () => {
         functionBlur={errorCheck}
         />
         <div className='errorMsg'>{appointmentError.artist_idError}</div>
-      <CustomInput
+        </div>
+        <div>Date :
+        <CustomInput
         design={`inputDesign ${appointmentError.dateError !== "" ? 'inputDesignError' : ''}`}
         type={"date"}
         name={"date"}
@@ -93,7 +96,9 @@ export const Appointments = () => {
         functionBlur={errorCheck}
       />
       <div className='errorMsg'>{appointmentError.dateError}</div>
-      <CustomInput
+      </div>
+      <div>Shift :
+        <CustomInput
         design={`inputDesign ${appointmentError.shiftError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"shift"}
@@ -102,7 +107,9 @@ export const Appointments = () => {
         functionBlur={errorCheck}
       />
       <div className='errorMsg'>{appointmentError.shiftError}</div>
-      <CustomInput
+      </div>
+      <div>Type work :
+        <CustomInput
         design={`inputDesign ${appointmentError.type_workError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"type_work"}
@@ -111,7 +118,9 @@ export const Appointments = () => {
         functionBlur={errorCheck}
       />
       <div className='errorMsg'>{appointmentError.type_workError}</div>
-      <CustomInput
+      </div>
+      <div>Description :
+        <CustomInput
         design={`inputDesign ${appointmentError.descriptionError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"description"}
@@ -120,6 +129,7 @@ export const Appointments = () => {
         functionBlur={errorCheck}
       />
       <div className='errorMsg'>{appointmentError.descriptionError}</div>
+      </div>
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
     </div>
   )
