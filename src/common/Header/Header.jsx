@@ -21,8 +21,6 @@ export const Header = () => {
 
     return (
         <div className="headerDesign">
-            <div></div>
-            <div><img className='logoHeader' src={"./img/logo.png"} /></div>
             <LinkButton path={"/"} title={"Home"} />
             {!rdxCredentials?.credentials.token ? (
                 <>

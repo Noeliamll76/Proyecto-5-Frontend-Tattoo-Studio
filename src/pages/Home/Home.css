@@ -1,16 +1,17 @@
 
 .homeDesign {
 
-    height: 88vh;
+    height:100vh;
     width: 100vw;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: darkgrey;
-
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center; 
+   
+    background-image: url(../../../public/img/tatouage-homme1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-y: scroll;
 }
 
@@ -18,14 +19,11 @@
 
     height: 3em;
     width: 8em;
-
     
-    color: rgb(23, 22, 22);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: darkgoldenrod;
     font-weight: bolder;
-
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+    font-size:x-large;
 
 }
 

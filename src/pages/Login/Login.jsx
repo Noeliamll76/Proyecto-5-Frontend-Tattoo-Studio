@@ -73,6 +73,7 @@ export const Login = () => {
     
     return (
         <div className="loginDesign">
+            <div>Email :
             <CustomInput
                 design={"inputDesign"}
                 type={"email"}
@@ -82,6 +83,9 @@ export const Login = () => {
                 functionBlur={errorCheck}
             />
             <div className='errorMsg'>{credencialesError.emailError}</div>
+            </div>
+
+            <div>Password :
             <CustomInput
                 design={"inputDesign"}
                 type={"password"}
@@ -91,6 +95,7 @@ export const Login = () => {
                 functionBlur={errorCheck}
             />
             <div className='errorMsg'>{credencialesError.passwordError}</div>
+            </div>
 
             <div className='buttonSubmit' onClick={logMe}>Log Me!</div>
             <div>{msgError}</div>

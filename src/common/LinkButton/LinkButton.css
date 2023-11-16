@@ -1,12 +1,13 @@
 .linkButtonDesign {
     width: 7em;
     height: 3em;
-
-    color: grey;
+    
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: whitesmoke;
     font-size: large;
     transition: 0.4s;
     margin-bottom: 0.5em;
-
+    
 }
 
 .linkButtonDesign:hover {

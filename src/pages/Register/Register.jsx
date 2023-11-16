@@ -39,7 +39,7 @@ export const Register = () => {
       ...prevState,
       [e.target.name + 'Error']: error,
     }));
-    
+
   }
 
   const Submit = () => {
@@ -70,43 +70,54 @@ export const Register = () => {
 
   return (
     <div className="registerDesign">
-      <CustomInput
-        design={`inputDesign ${userError.nameError !== "" ? 'inputDesignError' : ''}`}
-        type={"text"}
-        name={"name"}
-        placeholder={"Name and surname"}
-        functionProp={functionHandler}
-        functionBlur={errorCheck}
+      <div><img className="logoDesign" src={"./img/logo.png"} /></div>
+      <div>Nombre de usuario :
+        <CustomInput
+          design={`inputDesign ${userError.nameError !== "" ? 'inputDesignError' : ''}`}
+          type={"text"}
+          name={"name"}
+          placeholder={"Name and surname"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
         />
-        
-      <div className='errorMsg'>{userError.nameError}</div>
-      <CustomInput
-        design={`inputDesign ${userError.emailError !== "" ? 'inputDesignError' : ''}`}
-        type={"email"}
-        name={"email"}
-        placeholder={"Email"}
-        functionProp={functionHandler}
-        functionBlur={errorCheck}
-      />
-      <div className='errorMsg'>{userError.emailError}</div>
-      <CustomInput
-        design={`inputDesign ${userError.passwordError !== "" ? 'inputDesignError' : ''}`}
-        type={"password"}
-        name={"password"}
-        placeholder={"password min 8 characters"}
-        functionProp={functionHandler}
-        functionBlur={errorCheck}
-      />
-      <div className='errorMsg'>{userError.passwordError}</div>
-      <CustomInput
-        design={`inputDesign ${userError.phoneError !== "" ? 'inputDesignError' : ''}`}
-        type={"text"}
-        name={"phone"}
-        placeholder={"phone"}
-        functionProp={functionHandler}
-        functionBlur={errorCheck}
-      />
-      <div className='errorMsg'>{userError.phoneError}</div>
+        <div className='errorMsg'>{userError.nameError}</div>
+      </div>
+
+      <div>Email de usuario :
+        <CustomInput
+          design={`inputDesign ${userError.emailError !== "" ? 'inputDesignError' : ''}`}
+          type={"email"}
+          name={"email"}
+          placeholder={"Email"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{userError.emailError}</div>
+      </div>
+
+      <div>Password :
+        <CustomInput
+          design={`inputDesign ${userError.passwordError !== "" ? 'inputDesignError' : ''}`}
+          type={"password"}
+          name={"password"}
+          placeholder={"password min 8 characters"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{userError.passwordError}</div>
+      </div>
+
+      <div>Phone number :
+        <CustomInput
+          design={`inputDesign ${userError.phoneError !== "" ? 'inputDesignError' : ''}`}
+          type={"text"}
+          name={"phone"}
+          placeholder={"phone"}
+          functionProp={functionHandler}
+          functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{userError.phoneError}</div>
+      </div>
 
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
     </div>

@@ -3,16 +3,32 @@
 
     height: 88vh;
     width: 100vw;
+    
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items:center;
+   
 
-    background-color: darkgrey;
+    color: whitesmoke;
+    font-size: large;
+    background-color: rgb(20, 20, 20);
+
+    background-image: url(../../../public/img/tatoo-maquina.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    overflow-y: scroll;
+}
+
+.logoDesign{
+    height: 10em;
+    width: 10em;
+       
 }
 
 .errorMsg {
+    font-size:medium;
     color: red;
 }
 
@@ -24,11 +40,11 @@
     border-radius: 1em;
     background-color: crimson;
     color: white;
-    font-weight: bolder;
+    font-size: large;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: unset;
 }
 
 .buttonSubmit:hover {

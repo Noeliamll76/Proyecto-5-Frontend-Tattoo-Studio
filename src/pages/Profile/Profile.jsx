@@ -5,7 +5,7 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { GetUser } from "../../services/apiCalls";
 import { updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
-
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
@@ -16,7 +16,7 @@ export const Profile = () => {
     const rdxUser = useSelector(userData);
 
     const [Profile, setProfile] = useState({
-        userName: "",
+        name: "",
         email: "",
         password: "",
         phone: "",
@@ -25,7 +25,7 @@ export const Profile = () => {
     })
 
     const [ProfileError, setProfileError] = useState({
-        userNameError: '',
+        nameError: '',
         emailError: '',
         passwordError: '',
         phoneError: '',
@@ -44,10 +44,12 @@ export const Profile = () => {
             if (Profile[test1] === "") {
                 GetUser(rdxUser.credentials.token)
                     .then((results) => {
+                        console.log(results)
                         setProfile(results.data.data);
                     })
                     .catch((error) => console.log(error));
             }
+            console.log(Profile)
         } [Profile]
     });
 
@@ -68,60 +70,81 @@ export const Profile = () => {
     }
 
     const sendData = () => {
-        updateUser(rdxUser.credentials.token, results.data.data)
-        setTimeout(() => {
-            setIsEnabled(true)
-        }, 1000)
+        updateUser(rdxUser.credentials.token, Profile)
+            .then((resultsUpdate) => {
+                setTimeout(() => {
+                    setIsEnabled(true)
+                    console.log("ha realizado el update")
+                    Navigate("/")
+                }, 1000)
+            })
+            .catch((error) => console.log(error));
     }
 
+
     return (
-        <div className="ProfileDesign">
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.userNameError !== ""
-                    ? "inputDesignError"
-                    : ""
-                    }`}
-                type={"text"}
-                name={"name"}
-                placeholder={""}
-                value={Profile.userName}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.emailError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"email"}
-                name={"email"}
-                placeholder={""}
-                value={Profile.email}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.passwordError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"password"}
-                name={"password"}
-                placeholder={""}
-                value={Profile.password}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.phoneError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"text"}
-                name={"phone"}
-                placeholder={""}
-                value={Profile.phone}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
+        <div className="profileDesign">
+            <div><img className="logoDesign" src={"./img/logo.png"} /></div>
+
+            <div>Nombre de usuario :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.nameError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"text"}
+                    name={"name"}
+                    placeholder={""}
+                    value={Profile.name}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.nameError}</div>
+            </div>
+
+            <div>Email :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.emailError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"email"}
+                    name={"email"}
+                    placeholder={""}
+                    value={Profile.email}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.emailError}</div>
+            </div>
+
+            <div>Password :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.passwordError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"password"}
+                    name={"password"}
+                    placeholder={""}
+                    value={Profile.password}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.passwordError}</div>
+            </div>
+
+            <div>Phone :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.phoneError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"text"}
+                    name={"phone"}
+                    placeholder={""}
+                    value={Profile.phone}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.phoneError}</div>
+            </div>
             {
                 isEnabled
                     ? (<div className="buttonSubmit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
@@ -130,4 +153,4 @@ export const Profile = () => {
             }
         </div>
     );
-};
+}

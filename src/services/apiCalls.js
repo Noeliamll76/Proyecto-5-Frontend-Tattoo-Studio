@@ -17,8 +17,8 @@ export const GetUser = async (token) => {
    return await axios.get(`http://localhost:4000/user/profile`,{headers:{Authorization:`Bearer ${token}`}});
 }
 
-export const updateUser = async (body) => {
-   return await axios.put(`http://localhost:4000/user/updateUserByToken`, token, body);
+export const updateUser = async (token, body) => {
+   return await axios.put(`http://localhost:4000/user/updateUserByToken`, {headers:{Authorization:`Bearer ${token}`}}, body);
 }
 
 export const registerAppointment = async (body) => {
