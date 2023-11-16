@@ -70,8 +70,11 @@ export const Profile = () => {
     }
 
     const sendData = () => {
+        console.log(rdxUser.credentials.token)
+        console.log(Profile)
         updateUser(rdxUser.credentials.token, Profile)
             .then((resultsUpdate) => {
+                console.log (resultsUpdate)
                 setTimeout(() => {
                     setIsEnabled(true)
                     console.log("ha realizado el update")
