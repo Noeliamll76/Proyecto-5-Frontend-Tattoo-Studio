@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { GetUser } from "../../services/apiCalls";
+import { updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 
 
@@ -33,25 +34,22 @@ export const Profile = () => {
     })
 
     const [isEnabled, setIsEnabled] = useState(true);
-    const configToken = {
-        headers: { Authorization: `Bearer ${rdxUser.credentials.token}` }
-    };
 
     useEffect(() => {
         console.log(rdxUser);
     }, [rdxUser]);
 
     useEffect(() => {
-        //  if (Profile.length === 0) {
-            GetUser(configToken)
-            console.log (rdxUser.credentials.token)
-            .then((results) => {
-                setProfile(results.data.data);
-            })
-            .catch((error) => console.log(error));
-        //  }
-        console.log (Profile)
-    }, [Profile]);
+        for (let test1 in Profile) {
+            if (Profile[test1] === "") {
+                GetUser(rdxUser.credentials.token)
+                    .then((results) => {
+                        setProfile(results.data.data);
+                    })
+                    .catch((error) => console.log(error));
+            }
+        } [Profile]
+    });
 
     const errorCheck = (e) => {
         let error = "";
@@ -69,7 +67,7 @@ export const Profile = () => {
         }));
     }
 
-    const updateUser = () => {
+    const sendData = () => {
         updateUser(rdxUser.credentials.token, results.data.data)
         setTimeout(() => {
             setIsEnabled(true)
