@@ -24,7 +24,7 @@ export const tattoo_artistSlice = createSlice({
     
 });
 
-export const { login, logout } = tattoo_artistSliceSlice.actions;
+export const { login, logout } = tattoo_artistSlice.actions;
 
 export const tattoo_artistData = (state) => state.tattoo_artist;
 

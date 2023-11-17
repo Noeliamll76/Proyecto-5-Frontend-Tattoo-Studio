@@ -96,7 +96,7 @@ export const Profile = () => {
                         }`}
                     type={"text"}
                     name={"name"}
-                    placeholder={""}
+                    placeholder={Profile.name}
                     value={Profile.name}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -111,7 +111,7 @@ export const Profile = () => {
                         }`}
                     type={"email"}
                     name={"email"}
-                    placeholder={""}
+                    placeholder={Profile.email}
                     value={Profile.email}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -126,7 +126,7 @@ export const Profile = () => {
                         }`}
                     type={"password"}
                     name={"password"}
-                    placeholder={""}
+                    placeholder={Profile.password}
                     value={Profile.password}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -141,7 +141,7 @@ export const Profile = () => {
                         }`}
                     type={"text"}
                     name={"phone"}
-                    placeholder={""}
+                    placeholder={Profile.phone}
                     value={Profile.phone}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
