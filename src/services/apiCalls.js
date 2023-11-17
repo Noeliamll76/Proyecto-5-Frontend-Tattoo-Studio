@@ -18,11 +18,11 @@ export const GetUser = async (token) => {
 }
 
 export const updateUser = async (token, body) => {
-   return await axios.put(`http://localhost:4000/user/updateUserByToken`, {headers:{Authorization:`Bearer ${token}`}}, body);
+   return await axios.put(`http://localhost:4000/user/updateUserByToken`, body, token);
 }
 
-export const registerAppointment = async (body) => {
-   return await axios.post(`http://localhost:4000/appointment/register`, {headers:{Authorization:`Bearer ${token}`}});
+export const registerAppointment = async (token, body) => {
+   return await axios.post(`http://localhost:4000/appointment/register`, {headers:{Authorization:`Bearer ${token}`}}, body);
 }
 
 export const logTattooArtist = async (body) => {

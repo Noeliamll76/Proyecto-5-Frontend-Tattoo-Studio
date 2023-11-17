@@ -7,15 +7,18 @@ import { registerAppointment } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-
+import { useSelector } from "react-redux";
+import { userData } from "../../pages/userSlice";
 
 
 export const Appointments = () => {
 
   const navigate = useNavigate();
+  const rdxUser = useSelector(userData);
+  const token = { headers: { Authorization: `Bearer ${rdxUser.credentials.token}` } }
 
   const [appointment, setAppointment] = useState({
-    
+    user_id: '',
     artist_id: '',
     date: '',
     shift: '',
@@ -24,6 +27,7 @@ export const Appointments = () => {
   });
 
   const [appointmentError, setAppointmentError] = useState({
+    user_idError: '',
     artist_idError: '',
     dateError: '',
     shiftError: '',
@@ -50,8 +54,8 @@ export const Appointments = () => {
 
   const Submit = () => {
 
-    for (let test1 in user) {
-      if (user[test1] === "") {
+    for (let test in user) {
+      if (user[test] === "") {
         return;
       }
     }
@@ -61,7 +65,7 @@ export const Appointments = () => {
         return;
       }
     }
-    registerAppointment(appointment)
+    registerAppointment(token, appointment)
       .then(
         resultado => {
           console.log(resultado)

@@ -45,8 +45,8 @@ export const Register = () => {
   }
 
   const Submit = () => {
-    for (let test1 in user) {
-      if (user[test1] === "") {
+    for (let test in user) {
+      if (user[test] === "") {
         return;
       }
     }
@@ -56,8 +56,7 @@ export const Register = () => {
       }
     }
     registerUser(user)
-      .then(
-        resultado => {
+      .then( resultado => {
           if (resultado.data.message === "Incorrect data"){
             setMsgError("Incorrect data or existing user")
             return;
