@@ -4,34 +4,41 @@ import './Profile.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { GetUser } from "../../services/apiCalls";
 import { updateUser } from "../../services/apiCalls";
+import { logUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
+import { login } from "../userSlice";
 
 
 export const Profile = () => {
 
     const rdxUser = useSelector(userData);
+    const token = { headers: { Authorization: `Bearer ${rdxUser.credentials.token}` } }
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [Profile, setProfile] = useState({
         name: "",
         email: "",
-        password: "",
         phone: "",
-        role: "",
-        created_at: "",
+        // password: "",
+        // role: "",
+        // created_at: "",
     })
 
     const [ProfileError, setProfileError] = useState({
         nameError: '',
         emailError: '',
-        passwordError: '',
         phoneError: '',
-        roleError: '',
-        created_atError: '',
+        // passwordError: '',
+        // roleError: '',
+        // created_atError: '',
     })
+
+    const [credenciales, setCredenciales] = useState();
 
     const [isEnabled, setIsEnabled] = useState(true);
 
@@ -42,7 +49,7 @@ export const Profile = () => {
     useEffect(() => {
         for (let test1 in Profile) {
             if (Profile[test1] === "") {
-                GetUser(rdxUser.credentials.token)
+                GetUser(token)
                     .then((results) => {
                         console.log(results)
                         setProfile(results.data.data);
@@ -70,17 +77,36 @@ export const Profile = () => {
     }
 
     const sendData = () => {
-        console.log(rdxUser.credentials.token)
-        console.log(Profile)
-        updateUser(rdxUser.credentials.token, Profile)
+        for (let test1 in Profile) {
+            if (Profile[test1] === "") {
+                return;
+            }
+        }
+        for (let test in ProfileError) {
+            if (ProfileError[test] !== "") {
+                return;
+            }
+        }
+        updateUser(token, Profile)
             .then((resultsUpdate) => {
-                console.log (resultsUpdate)
+                console.log(resultsUpdate)
+                console.log(Profile)
+                console.log("ha realizado el update")
+                // setCredenciales({Profile.name, Profile.email})
+                // console.log(credenciales)
+
+                // logUser(credenciales)
+                // .then(resultado => {
+                // console.log(credenciales)
+                dispatch(login({ credentials: "" }))
                 setTimeout(() => {
                     setIsEnabled(true)
-                    console.log("ha realizado el update")
-                    Navigate("/")
-                }, 1000)
+                    navigate("/");
+                }, 1000);
             })
+            // .catch(error => {
+            //     setMsgError(error.message)
+            // });
             .catch((error) => console.log(error));
     }
 
@@ -89,14 +115,13 @@ export const Profile = () => {
         <div className="profileDesign">
             <div><img className="logoDesign" src={"./img/logo.png"} /></div>
 
-            <div>Nombre de usuario :
+            <div>Nombre :
                 <CustomInput
                     disabled={isEnabled}
                     design={`inputDesign ${ProfileError.nameError !== "" ? "inputDesignError" : ""
                         }`}
                     type={"text"}
                     name={"name"}
-                    placeholder={Profile.name}
                     value={Profile.name}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
@@ -111,27 +136,11 @@ export const Profile = () => {
                         }`}
                     type={"email"}
                     name={"email"}
-                    placeholder={Profile.email}
                     value={Profile.email}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
                 <div className='errorMsg'>{ProfileError.emailError}</div>
-            </div>
-
-            <div>Password :
-                <CustomInput
-                    disabled={isEnabled}
-                    design={`inputDesign ${ProfileError.passwordError !== "" ? "inputDesignError" : ""
-                        }`}
-                    type={"password"}
-                    name={"password"}
-                    placeholder={Profile.password}
-                    value={Profile.password}
-                    functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                />
-                <div className='errorMsg'>{ProfileError.passwordError}</div>
             </div>
 
             <div>Phone :
@@ -141,7 +150,6 @@ export const Profile = () => {
                         }`}
                     type={"text"}
                     name={"phone"}
-                    placeholder={Profile.phone}
                     value={Profile.phone}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}

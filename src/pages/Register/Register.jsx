@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export const Register = () => {
 
   const navigate = useNavigate();
+  const [msgError, setMsgError] = useState('');
 
   const [user, setUser] = useState({
     name: '',
@@ -30,6 +31,7 @@ export const Register = () => {
       ...prevState,
       [e.target.name]: e.target.value
     }));
+    setMsgError("")
   };
 
   const errorCheck = (e) => {
@@ -43,13 +45,11 @@ export const Register = () => {
   }
 
   const Submit = () => {
-
     for (let test1 in user) {
       if (user[test1] === "") {
         return;
       }
     }
-
     for (let test in userError) {
       if (userError[test] !== "") {
         return;
@@ -58,12 +58,15 @@ export const Register = () => {
     registerUser(user)
       .then(
         resultado => {
-          //si todo ha ido bien, redirigiremos a login...
-          console.log(resultado)
+          if (resultado.data.message === "Incorrect data"){
+            setMsgError("Incorrect data or existing user")
+            return;
+          }
           setTimeout(() => {
             navigate("/login");
           }, 500)
         }
+        
       )
       .catch(error => console.log(error));
   }
@@ -118,6 +121,8 @@ export const Register = () => {
         />
         <div className='errorMsg'>{userError.phoneError}</div>
       </div>
+
+      <div className='errorMsg'>{msgError}</div>
 
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
     </div>

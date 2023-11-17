@@ -35,9 +35,10 @@ export const Cards = () => {
         <div className='cardsDesign'>
 
             {tattoos.length > 0 ? (
-                <div className='tattoosRoster'>
+                <div className='tattoosRoster' Ay Ay Ay>
                     { tattoos.map(tattoo =>  {
                          return (
+                            
                             <TattooCard
                                 key={tattoo.id}
                                 description={tattoo.description}
@@ -46,6 +47,7 @@ export const Cards = () => {
                                 selected={"selectedCard"}
                                 selectFunction={() => tellMe(tattoo)}
                             />)
+                            
                         })
                     }
                 </div>

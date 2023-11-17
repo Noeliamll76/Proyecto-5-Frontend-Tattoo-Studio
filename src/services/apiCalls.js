@@ -14,7 +14,7 @@ export const GetTattoo = async () => {
 }
 
 export const GetUser = async (token) => {
-   return await axios.get(`http://localhost:4000/user/profile`,{headers:{Authorization:`Bearer ${token}`}});
+   return await axios.get(`http://localhost:4000/user/profile`, token);
 }
 
 export const updateUser = async (token, body) => {
@@ -28,3 +28,14 @@ export const registerAppointment = async (body) => {
 export const logTattooArtist = async (body) => {
    return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
 }
+
+// export const deleteUser= async (id) => {
+//    return await axios.delete(`http://localhost:4000/blackAlien/deleteuser`, {data : { id: id}})
+//  }
+
+// const deleteUser = (id) => {
+//    deleteAUser(id).then((resultado) => {
+//      console.log(resultado);
+//      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+//    });
+//  };

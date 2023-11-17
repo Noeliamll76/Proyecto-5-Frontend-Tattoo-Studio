@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: center;
 
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
     font-size: x-large;
     color: darkgoldenrod;
     
@@ -30,7 +29,6 @@
     height: 3em;
     width: 8em;
 
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
     border-radius: 1em;
     background-color: darkgoldenrod;
     color: white;
