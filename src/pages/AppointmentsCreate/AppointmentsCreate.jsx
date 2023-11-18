@@ -17,8 +17,9 @@ export const AppointmentsCreate = () => {
   const navigate = useNavigate();
   const rdxUser = useSelector(userData);
   const appointmentIdUser = (rdxUser.credentials.data.id)
+  const [msgError, setMsgError] = useState();
 
-  const token = { headers: { Authorization: `Bearer ${rdxUser.credentials.token}` } }
+  const token = rdxUser.credentials.token
 
   const [appointment, setAppointment] = useState({
     user_id: '',
@@ -28,7 +29,7 @@ export const AppointmentsCreate = () => {
     type_work: '',
     description: ''
   });
-  
+
   const [appointmentError, setAppointmentError] = useState({
     user_idError: '',
     artist_idError: '',
@@ -63,8 +64,6 @@ export const AppointmentsCreate = () => {
 
     for (let test in appointment) {
       if (appointment[test] === "") {
-    console.log (appointment)
-
         return;
       }
     }
@@ -73,22 +72,21 @@ export const AppointmentsCreate = () => {
         return;
       }
     }
-    console.log (appointment)
-    console.log (appointmentError)
-    console.log (token)
-    // registerAppointment(token, appointment)
-    registerAppointment(appointment)
-      .then(resultado => {
-        if (resultado.data.message === "Appointment created") {
-          setTimeout(() => {
-            console.log("Cita creada correctamente")
-            navigate("/");
-          }, 500)
+    console.log(appointment)
+    console.log(appointmentError)
+    console.log(token)
+  
+    registerAppointment(appointment, token)
+      .then(resultado => 
+        {
+        if (resultado.data.message === "Appointment created") 
+        {
+          setTimeout(() => {  return ("Cita creada correctamente") }, 500)
+          navigate("/");
         }
-        setMsgError(resultado.data.message)
-        console.log(resultado, data.message)
-        return;
-      })
+        console.log (resultado.data.message)
+        setMsgError(resultado.data.message);
+        })
       .catch(error => console.log(error));
   }
 
@@ -161,8 +159,9 @@ export const AppointmentsCreate = () => {
         />
         <div className='errorMsg'>{appointmentError.descriptionError}</div>
       </div>
-
+      <div className='errorMsg'>{msgError}</div>
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
+
     </div>
   )
 }

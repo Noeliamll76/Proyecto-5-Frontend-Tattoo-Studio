@@ -69,12 +69,12 @@ export const Profile = () => {
 
     const sendData = async () => {
         try {
-            // for (let test in Profile) {
-            //     if (Profile[test] === "") return;
-            // }
-            // for (let test in ProfileError) {
-            //     if (ProfileError[test] !== "") return;
-            // }
+            for (let test in Profile) {
+                if (Profile[test] === "") return;
+            }
+            for (let test in ProfileError) {
+                if (ProfileError[test] !== "") return;
+            }
             const body = {
                 name: Profile.name,
                 email: Profile.email,
@@ -82,7 +82,7 @@ export const Profile = () => {
             };
             console.log(token)
             console.log(body)
-            const response = await updateUser(token, body);
+            const response = await updateUser(body, token);
             if (response.data.message !== "user update") {
                 setMsgError(response.data.message)
                 console.log(response.data.message)
