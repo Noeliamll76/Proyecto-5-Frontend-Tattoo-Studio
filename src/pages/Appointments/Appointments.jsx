@@ -1,21 +1,26 @@
 
 import React, { useState, useEffect } from 'react';
-import './Appointments.css'
+import './Appointments.css';
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { registerAppointment } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import { useSelector } from "react-redux";
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector, useDispatch } from "react-redux";
+import { login, appointmentData } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
 
 
 export const Appointments = () => {
 
   const navigate = useNavigate();
-  const rdxUser = useSelector(userData);
-  const token = { headers: { Authorization: `Bearer ${rdxUser.credentials.token}` } }
+  const dispatch = useDispatch();
+  const rdxuser = useSelector(userData);
+  const rdxAppointment = useSelector(appointmentData);
+
+  const token = { headers: { Authorization: `Bearer ${rdxuser.credentials.token}` } }
 
   const [appointment, setAppointment] = useState({
     user_id: '',
@@ -49,26 +54,27 @@ export const Appointments = () => {
       ...prevState,
       [e.target.name + 'Error']: error,
     }));
-    
-  }
+      }
 
   const Submit = () => {
-
-    for (let test in user) {
-      if (user[test] === "") {
+    for (let test in appointment) {
+      if (appointment[test] === "") {
         return;
       }
     }
 
-    for (let test in userError) {
-      if (userError[test] !== "") {
+    for (let test in appointmentError) {
+      if (appointmentError[test] !== "") {
         return;
       }
     }
     registerAppointment(token, appointment)
       .then(
         resultado => {
-          console.log(resultado)
+          if (resultado.data.message !== "Appointment created"){
+            setMsgError("Incorrect data or existing appointment")
+            return;
+          }
           setTimeout(() => {
             navigate("/");
           }, 500)
@@ -79,12 +85,23 @@ export const Appointments = () => {
 
   return (
     <div className="appointmentDesign">
+      <div>User id :
+        <CustomInput
+        design={`inputDesign ${appointmentError.artist_idError !== "" ? 'inputDesignError' : ''}`}
+        type={"number"}
+        name={"user_id"}
+        value={""}
+        functionProp={functionHandler}
+        functionBlur={errorCheck}
+        />
+        <div className='errorMsg'>{appointmentError.artist_idError}</div>
+        </div>
       <div>Id tattoo artist :
         <CustomInput
         design={`inputDesign ${appointmentError.artist_idError !== "" ? 'inputDesignError' : ''}`}
         type={"number"}
         name={"artist_id"}
-        placeholder={"Name tattoo artist"}
+      
         functionProp={functionHandler}
         functionBlur={errorCheck}
         />
@@ -95,7 +112,7 @@ export const Appointments = () => {
         design={`inputDesign ${appointmentError.dateError !== "" ? 'inputDesignError' : ''}`}
         type={"date"}
         name={"date"}
-        placeholder={"aaaa/mm/dd"}
+        
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
@@ -106,7 +123,7 @@ export const Appointments = () => {
         design={`inputDesign ${appointmentError.shiftError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"shift"}
-        placeholder={"mañanas o tardes"}
+        
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
@@ -117,7 +134,7 @@ export const Appointments = () => {
         design={`inputDesign ${appointmentError.type_workError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"type_work"}
-        placeholder={"type work"}
+       
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
@@ -128,7 +145,7 @@ export const Appointments = () => {
         design={`inputDesign ${appointmentError.descriptionError !== "" ? 'inputDesignError' : ''}`}
         type={"text"}
         name={"description"}
-        placeholder={"description, size and tattoo location"}
+       
         functionProp={functionHandler}
         functionBlur={errorCheck}
       />
