@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
-import { GetUser } from "../../services/apiCalls";
-import { updateUser } from "../../services/apiCalls";
+import { GetUser, updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ import { userData } from "../../pages/userSlice";
 export const Profile = () => {
 
     const rdxUser = useSelector(userData);
-    const token = { headers: { Authorization: `Bearer ${rdxUser.credentials.token}` } }
+    const token = rdxUser.credentials.token
 
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
@@ -33,7 +32,7 @@ export const Profile = () => {
     })
 
     useEffect(() => {
-          console.log(rdxUser);
+        console.log(rdxUser);
     }, [rdxUser]);
 
     useEffect(() => {
@@ -47,7 +46,7 @@ export const Profile = () => {
                     })
                     .catch((error) => console.log(error));
             }
-       }
+        }
     }, [Profile]);
 
 
@@ -81,12 +80,12 @@ export const Profile = () => {
                 email: Profile.email,
                 phone: Profile.phone,
             };
-            console.log (token)
-            console.log (body)
+            console.log(token)
+            console.log(body)
             const response = await updateUser(token, body);
             if (response.data.message !== "user update") {
-                setMsgError("Incorrect data user")
-                console.log (response.data.message)
+                setMsgError(response.data.message)
+                console.log(response.data.message)
                 return;
             }
             console.log(resultsUpdate)
@@ -94,66 +93,66 @@ export const Profile = () => {
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/");
-            }, 1000);
+            }, 500);
         }
-        catch (error) {console.log (error)}
+        catch (error) { console.log(error) }
     };
 
 
-return (
-    <div className="profileDesign">
-        <div><img className="logoDesign" src={"./img/logo.png"} /></div>
+    return (
+        <div className="profileDesign">
+            <div><img className="logoDesign" src={"./img/logo.png"} /></div>
 
-        <div>Nombre :
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.nameError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"text"}
-                name={"name"}
-                value={Profile.name}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <div className='errorMsg'>{ProfileError.nameError}</div>
+            <div>Nombre :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.nameError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"text"}
+                    name={"name"}
+                    value={Profile.name}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.nameError}</div>
+            </div>
+
+            <div>Email :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.emailError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"email"}
+                    name={"email"}
+                    value={Profile.email}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.emailError}</div>
+            </div>
+
+            <div>Phone :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign ${ProfileError.phoneError !== "" ? "inputDesignError" : ""
+                        }`}
+                    type={"text"}
+                    name={"phone"}
+                    value={Profile.phone}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.phoneError}</div>
+
+                <div className='errorMsg'>{msgError}</div>
+
+            </div>
+            {
+                isEnabled
+                    ? (<div className="buttonSubmit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
+
+                    : (<div className="buttonSubmit" onClick={() => sendData()}>UPDATE DATA</div>)
+            }
         </div>
-
-        <div>Email :
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.emailError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"email"}
-                name={"email"}
-                value={Profile.email}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <div className='errorMsg'>{ProfileError.emailError}</div>
-        </div>
-
-        <div>Phone :
-            <CustomInput
-                disabled={isEnabled}
-                design={`inputDesign ${ProfileError.phoneError !== "" ? "inputDesignError" : ""
-                    }`}
-                type={"text"}
-                name={"phone"}
-                value={Profile.phone}
-                functionProp={functionHandler}
-                functionBlur={errorCheck}
-            />
-            <div className='errorMsg'>{ProfileError.phoneError}</div>
-
-            <div className='errorMsg'>{msgError}</div>
-
-        </div>
-        {
-            isEnabled
-                ? (<div className="buttonSubmit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
-
-                : (<div className="buttonSubmit" onClick={() => sendData()}>UPDATE DATA</div>)
-        }
-    </div>
-);
-        }
+    );
+}

@@ -14,17 +14,20 @@ export const GetTattoo = async () => {
 }
 
 export const GetUser = async (token) => {
-   return await axios.get(`http://localhost:4000/user/profile`, token);
+   return await axios.get(`http://localhost:4000/user/profile`, {headers:{Authorization:`Bearer ${token}`}});
 }
 
 export const updateUser = async (token, body) => {
-   return await axios.put(`http://localhost:4000/user/updateUserByToken`, body, token);
+   return await axios.put(`http://localhost:4000/user/updateUserByToken`, {headers:{Authorization:`Bearer ${token}`}}, body);
 }
 
-export const registerAppointment = async (token, body) => {
-   return await axios.post(`http://localhost:4000/appointment/register`, {headers:{Authorization:`Bearer ${token}`}}, body);
-}
+// export const registerAppointment = async (token, body) => {
+//    return await axios.post(`http://localhost:4000/appointment/register`, {headers:{Authorization:`Bearer ${token}`}}, body);
+// }
 
+export const registerAppointment = async (body) => {
+   return await axios.post(`http://localhost:4000/appointment/register`, body);
+}
 export const logTattooArtist = async (body) => {
    return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
 }

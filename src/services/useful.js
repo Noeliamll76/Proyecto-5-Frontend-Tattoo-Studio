@@ -18,7 +18,42 @@ export const validator = (type, value) => {
             } else {
                 return ""
             }
+        case 'description':
+            if (value.length > 255) {
+                return "Incorrect description"
+            } else {
+                return ""
+            }
 
+        case 'shift':
+            if (value !== "mañana" && value !== "tarde") {
+                return "Elige: mañana o tarde"
+            } else {
+                return ""
+            }
+
+        case 'type_work':
+            if (value !== "tattoo" && value !== "piercing") {
+                return "Elige: tattoo o piercing"
+            } else {
+                return ""
+            }
+
+        case 'user_id':
+        case 'artist_id':
+            if (! /(?=.*?[0-9])/.test(value)) {
+                return "Incorrect id";
+            } else {
+                return "";
+            }
+
+        case 'date':
+            if (! /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(value)) {
+                return "Date incorrect, must be YYYY-MM-DD";
+            } else {
+                return "";
+            }
+            
         case 'phone':
         case 'telefono':
             if (! /(?=.*?[0-9])/.test(value)) {
@@ -40,7 +75,7 @@ export const validator = (type, value) => {
                 //     return "Invalid password format";
                 // } 
                 // else {
-                    return "";
+                return "";
                 //  }
             }
     }

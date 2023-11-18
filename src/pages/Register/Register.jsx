@@ -73,7 +73,7 @@ export const Register = () => {
   return (
     <div className="registerDesign">
       <div><img className="logoDesign" src={"./img/logo.png"} /></div>
-      <div>Nombre de usuario :
+      <div>User name :
         <CustomInput
           design={`inputDesign ${userError.nameError !== "" ? 'inputDesignError' : ''}`}
           type={"text"}

@@ -63,7 +63,7 @@ export const Login = () => {
             dispatch(login({ credentials: resultado.data }))
             setTimeout(() => {
                 navigate("/");
-            }, 1000);
+            }, 500);
         })
         .catch(error => {
             console.log (error.message)
