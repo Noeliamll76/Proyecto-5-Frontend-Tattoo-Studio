@@ -26,14 +26,14 @@ export const validator = (type, value) => {
             }
 
         case 'shift':
-            if (value !== "mañana" && value !== "tarde") {
+            if (value.toLowerCase() !== "mañana" && value.toLowerCase() !== "tarde") {
                 return "Elige: mañana o tarde"
             } else {
                 return ""
             }
 
         case 'type_work':
-            if (value !== "tattoo" && value !== "piercing") {
+            if (value.toLowerCase() !== "tattoo" && value.toLowerCase() !== "piercing") {
                 return "Elige: tattoo o piercing"
             } else {
                 return ""

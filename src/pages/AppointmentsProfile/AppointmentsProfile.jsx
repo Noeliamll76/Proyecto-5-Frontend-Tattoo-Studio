@@ -7,25 +7,29 @@ import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
+import { jwtDecode } from 'jwt-decode';
 
 export const AppointmentsProfile = () => {
 
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
+
+    const tokenDecodificated = jwtDecode(token)
+    const idToLogin = tokenDecodificated.id
+
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         if (appointments.length === 0) {
             setTimeout(() => {
-                loginAppointmentsById(token, "6")
+                loginAppointmentsById(idToLogin)
                     .then(
                         citas => {
                             setAppointments(citas.data.data)
-                            console.log(citas.data)
                         }
                     )
                     .catch(error => {
-                        console.log(error)
+                        console.log("dentro del cath: "+error)
                     }
                     )
             }, 2000)
@@ -38,7 +42,9 @@ export const AppointmentsProfile = () => {
 
     return (
         <div className='citasDesign'>
-            {appointments.length > 0 ? (
+
+            <div appointments/>
+             {appointments.length > 0 ? (
                 <div className='appointmentsRoster'>
                     {appointments.map(appointment => {
                         return (
@@ -49,10 +55,11 @@ export const AppointmentsProfile = () => {
                                 description={appointment.description}
                                 date={appointment.date}
                                 shift={appointment.shift}
-                                tattoo_artist={appointment.tattoo_artist}
+                                tattoo_artist={appointment.Tattoo_artist}
                                 selected={"selectedCard"}
-                                selectFunction={() => tellMe(tattoo)}
-                            />)
+                                selectFunction={() => tellMe(appointment)}
+                            />
+                            )
                     })
                     }
                 </div>
@@ -60,7 +67,7 @@ export const AppointmentsProfile = () => {
                 : (
                     <div><LoadingSpinner /></div>
                 )
-            }
+            } 
         </div>
     )
 }
