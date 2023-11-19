@@ -13,8 +13,6 @@ body{
     align-items: center; 
    
     background-image: url(../../../public/img/tatouage-homme1.jpg);
-    /* background-image: url(https://clipchamp.com/watch/bGEYg8sH8LY); */
-
     background-repeat: no-repeat;
     background-size: cover;
     overflow-y: scroll;
