@@ -5,6 +5,7 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { GetUser, updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
@@ -14,6 +15,8 @@ export const Profile = () => {
 
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
+    const tokenDecodificated = jwtDecode(token)
+    const idToLogin = tokenDecodificated.id
 
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
@@ -69,12 +72,9 @@ export const Profile = () => {
 
     const sendData = async () => {
         try {
-            for (let test in Profile) {
-                if (Profile[test] === "") return;
-            }
-            for (let test in ProfileError) {
-                if (ProfileError[test] !== "") return;
-            }
+            for (let test in Profile) { if (Profile[test] === "") return; }
+            for (let test in ProfileError) { if (ProfileError[test] !== "") return; }
+
             const body = {
                 name: Profile.name,
                 email: Profile.email,
@@ -82,13 +82,14 @@ export const Profile = () => {
             };
             console.log(token)
             console.log(body)
+
             const response = await updateUser(body, token);
             if (response.data.message !== "user update") {
                 setMsgError(response.data.message)
                 console.log(response.data.message)
                 return;
             }
-            console.log(resultsUpdate)
+            console.log(response)
             console.log(Profile)
             setTimeout(() => {
                 setIsEnabled(true)
@@ -102,6 +103,19 @@ export const Profile = () => {
     return (
         <div className="profileDesign">
             <div><img className="logoDesign" src={"./img/logo.png"} /></div>
+
+            <div>User id :
+                <CustomInput
+                    disabled={isEnabled}
+                    design={`inputDesign`}
+                    type={"number"}
+                    name={"user_id"}
+                    value={idToLogin}
+                    functionProp={functionHandler}
+                    functionBlur={errorCheck}
+                />
+                <div className='errorMsg'>{ProfileError.nameError}</div>
+            </div>
 
             <div>Nombre :
                 <CustomInput

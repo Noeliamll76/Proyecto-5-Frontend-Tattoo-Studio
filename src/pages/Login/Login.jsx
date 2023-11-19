@@ -73,6 +73,7 @@ export const Login = () => {
     
     return (
         <div className="loginDesign">
+            
             <div>Email :
             <CustomInput
                 design={"inputDesign"}
