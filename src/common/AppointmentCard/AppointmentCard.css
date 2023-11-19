@@ -1,18 +1,19 @@
 
 .appointmentCardDesign {
 
-    height: 5em;
-    width: 90vw;
+    height: 10em;
+    width: 20vw;
 
     border-radius: 1em;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    /* flex-direction: row; */
+    flex-direction: column;
 
-    background-color: rgb(38, 36, 36);
-    color: darkgoldenrod;
+    background-color: darkgrey;
+    color: black;
     border: 0.2 solid black;
 
     transition: 1s;

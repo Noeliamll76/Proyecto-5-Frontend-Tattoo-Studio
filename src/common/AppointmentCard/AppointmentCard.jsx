@@ -13,10 +13,11 @@ export const AppointmentCard = ({ artist_id, type_work,description, date, shift,
 
    return (
       <div className={`appointmentCardDesign ${!change ? selected : ''}`} onClick={callSelectClick}>
-         <div>Date: {date} Shift: {shift}</div>
-         <div>Type work: {type_work}</div>
-         <div>Description: {description}</div>
-         <div>Tatto artist: {tattoo_artist}</div>
+         <div>DATE: {date} SHIFT: {shift}</div>
+         <div>TYPE WORK: {type_work}</div>
+         <div>DESCRIPTION: {description}</div>
+         <div>Artist id: {artist_id}</div>
+         <div>TATTO ARTIST: {tattoo_artist}</div>
 
       </div>
    )

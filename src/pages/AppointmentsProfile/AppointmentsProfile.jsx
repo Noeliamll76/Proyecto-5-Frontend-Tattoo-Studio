@@ -29,22 +29,21 @@ export const AppointmentsProfile = () => {
                         }
                     )
                     .catch(error => {
-                        console.log("dentro del cath: "+error)
+                        console.log("dentro del cath: " + error)
                     }
                     )
             }, 2000)
         }
     }, [appointments]);
 
-    const tellMe = (argumento) => {
-        console.log(argumento)
-    }
-
+    // const tellMe = (argumento) => {
+    //     console.log(argumento)
+    // }
     return (
         <div className='citasDesign'>
 
-            <div appointments/>
-             {appointments.length > 0 ? (
+            <div appointments />
+            {appointments.length > 0 ? (
                 <div className='appointmentsRoster'>
                     {appointments.map(appointment => {
                         return (
@@ -57,9 +56,11 @@ export const AppointmentsProfile = () => {
                                 shift={appointment.shift}
                                 tattoo_artist={appointment.Tattoo_artist}
                                 selected={"selectedCard"}
-                                selectFunction={() => tellMe(appointment)}
+                                // selectFunction={() => tellMe(appointment)}
+                                
+
                             />
-                            )
+                        )
                     })
                     }
                 </div>
@@ -67,7 +68,7 @@ export const AppointmentsProfile = () => {
                 : (
                     <div><LoadingSpinner /></div>
                 )
-            } 
+            }
         </div>
     )
 }

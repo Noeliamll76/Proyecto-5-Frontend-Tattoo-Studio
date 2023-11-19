@@ -80,21 +80,12 @@ export const Profile = () => {
                 email: Profile.email,
                 phone: Profile.phone,
             };
-            console.log(token)
-            console.log(body)
-
             const response = await updateUser(body, token);
-            if (response.data.message !== "user update") {
-                setMsgError(response.data.message)
-                console.log(response.data.message)
-                return;
-            }
-            console.log(response)
-            console.log(Profile)
+            setMsgError(response.data.message)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/");
-            }, 500);
+            }, 1000);
         }
         catch (error) { console.log(error) }
     };

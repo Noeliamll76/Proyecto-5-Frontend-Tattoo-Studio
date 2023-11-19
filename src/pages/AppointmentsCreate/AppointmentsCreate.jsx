@@ -61,7 +61,6 @@ export const AppointmentsCreate = () => {
   }
 
   const Submit = () => {
-
     for (let test in appointment) {
       if (appointment[test] === "") {
         return;
@@ -75,18 +74,16 @@ export const AppointmentsCreate = () => {
     console.log(appointment)
     console.log(appointmentError)
     console.log(token)
-  
+
     registerAppointment(appointment, token)
-      .then(resultado => 
-        {
-        if (resultado.data.message === "Appointment created") 
-        {
-          setTimeout(() => {  return ("Cita creada correctamente") }, 500)
+      .then(resultado => {
+        if (resultado.data.message === "Appointment created") {
+          setTimeout(() => { return ("Cita creada correctamente") }, 500)
           navigate("/");
         }
-        console.log (resultado.data.message)
+        console.log(resultado.data.message)
         setMsgError(resultado.data.message);
-        })
+      })
       .catch(error => console.log(error));
   }
 
@@ -160,6 +157,7 @@ export const AppointmentsCreate = () => {
         <div className='errorMsg'>{appointmentError.descriptionError}</div>
       </div>
       <div className='errorMsg'>{msgError}</div>
+
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
 
     </div>
