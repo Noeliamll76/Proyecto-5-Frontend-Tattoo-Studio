@@ -14,6 +14,12 @@ import { userData } from "../../pages/userSlice";
 export const Profile = () => {
 
     const rdxUser = useSelector(userData);
+    
+console.log(rdxUser)
+console.log(userData)
+console.log(useSelector(userData))
+
+
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToLogin = tokenDecodificated.id

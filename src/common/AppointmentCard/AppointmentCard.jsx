@@ -17,8 +17,7 @@ export const AppointmentCard = ({ artist_id, type_work,description, date, shift,
          <div>TYPE WORK: {type_work}</div>
          <div>DESCRIPTION: {description}</div>
          <div>Artist id: {artist_id}</div>
-         <div>TATTO ARTIST: {tattoo_artist}</div>
-
+         <div>TATTOO ARTIST: {tattoo_artist}</div>
       </div>
    )
 }

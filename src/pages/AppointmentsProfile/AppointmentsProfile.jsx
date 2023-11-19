@@ -6,7 +6,7 @@ import { AppointmentCard } from '../../common/AppointmentCard/AppointmentCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { login, dataAppointment } from "../../pages/appointmentSlice";
+import { login } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
 import { jwtDecode } from 'jwt-decode';
 
@@ -28,21 +28,27 @@ export const AppointmentsProfile = () => {
                     .then(
                         citas => {
                             setAppointments(citas.data.data)
+                            console.log(setAppointments)
+                            console.log(citas)
                         }
                     )
                     .catch(error => {
                         console.log("dentro del cath: " + error)
                     }
                     )
-            }, 2000)
+            }, 1000)
         }
     }, [appointments]);
 
     const tellMe = (argumento) => {
-        dispatch(login({ dataAppointment: argumento.data }))
+        dispatch(login({ credentialAppointment: argumento }))
+
+console.log(argumento)
+console.log({ credentialAppointment: argumento })
+
         setTimeout(() => {
-            navigate("/");
-        }, 800);
+            navigate("/appointmentsUpdate");
+        }, 500);
     }
 
     return (
@@ -63,8 +69,6 @@ export const AppointmentsProfile = () => {
                                 tattoo_artist={appointment.Tattoo_artist}
                                 selected={"selectedCard"}
                                 selectFunction={() => tellMe(appointment)}
-                                
-
                             />
                         )
                     })

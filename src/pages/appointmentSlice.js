@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const appointmentSlice = createSlice({
-    name: 'dataAppointment',
+    name: 'appointment',
     initialState: {
-      dataAppoinment: {}
+      credentialAppointment: {}
     },
     reducers: {
       login: (state, action) => {
@@ -25,6 +25,6 @@ export const appointmentSlice = createSlice({
 
 export const { login, logout } = appointmentSlice.actions;
 
-export const dataAppointment = (state) => state.appointment;
+export const appointmentData = (state) => state.appointment;
 
 export default appointmentSlice.reducer;
