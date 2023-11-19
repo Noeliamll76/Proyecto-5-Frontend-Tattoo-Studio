@@ -1,0 +1,47 @@
+
+.appointmentDesign {
+
+    height: 88vh;
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+   
+    color: whitesmoke;
+    font-size: large;
+    background-color: rgb(20, 20, 20);
+
+    background-image: url(../../../public/img/salon3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+.errorMsg {
+    font-size:medium;
+    color: red;
+}
+
+.buttonSubmit {
+
+    height: 3em;
+    width: 8em;
+
+    border-radius: 1em;
+    background-color: crimson;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: unset;
+}
+
+.buttonSubmit:hover {
+
+    transition: 0.4s;
+    background-color: lightcoral;
+    cursor: pointer;
+}

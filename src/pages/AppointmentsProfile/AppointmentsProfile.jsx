@@ -4,8 +4,9 @@ import './AppointmentsProfile.css';
 import { loginAppointmentsById } from '../../services/apiCalls';
 import { AppointmentCard } from '../../common/AppointmentCard/AppointmentCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
-
-import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+import { login, dataAppointment } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
 import { jwtDecode } from 'jwt-decode';
 
@@ -13,9 +14,10 @@ export const AppointmentsProfile = () => {
 
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
-
     const tokenDecodificated = jwtDecode(token)
     const idToLogin = tokenDecodificated.id
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [appointments, setAppointments] = useState([]);
 
@@ -36,9 +38,13 @@ export const AppointmentsProfile = () => {
         }
     }, [appointments]);
 
-    // const tellMe = (argumento) => {
-    //     console.log(argumento)
-    // }
+    const tellMe = (argumento) => {
+        dispatch(login({ dataAppointment: argumento.data }))
+        setTimeout(() => {
+            navigate("/");
+        }, 800);
+    }
+
     return (
         <div className='citasDesign'>
 
@@ -56,7 +62,7 @@ export const AppointmentsProfile = () => {
                                 shift={appointment.shift}
                                 tattoo_artist={appointment.Tattoo_artist}
                                 selected={"selectedCard"}
-                                // selectFunction={() => tellMe(appointment)}
+                                selectFunction={() => tellMe(appointment)}
                                 
 
                             />

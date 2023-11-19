@@ -71,18 +71,13 @@ export const AppointmentsCreate = () => {
         return;
       }
     }
-    console.log(appointment)
-    console.log(appointmentError)
-    console.log(token)
-
+   
     registerAppointment(appointment, token)
       .then(resultado => {
         if (resultado.data.message === "Appointment created") {
           setTimeout(() => { return ("Cita creada correctamente") }, 500)
           navigate("/");
         }
-        console.log(resultado.data.message)
-        setMsgError(resultado.data.message);
       })
       .catch(error => console.log(error));
   }
