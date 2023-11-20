@@ -12,7 +12,7 @@ export const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const rdxCredentials = useSelector(userData);
+    const rdxCredentialsUser = useSelector(userData);
 
     const logOutMe = () => {
         dispatch(logout({ credentials: "" }))
@@ -22,7 +22,7 @@ export const Header = () => {
     return (
         <div className="headerDesign">
             <LinkButton path={"/"} title={"Home"} />
-            {!rdxCredentials?.credentials.token ? (
+            {!rdxCredentialsUser?.credentials.token ? (
                 <>
                     <LinkButton path={"/register"} title={"Register"} />
                     <LinkButton path={"/login"} title={"Login"} />
@@ -30,7 +30,7 @@ export const Header = () => {
                 </>
             ) : (
                 <>
-                    <LinkButton path={"/profile"} title={rdxCredentials.credentials.data.name} />
+                    <LinkButton path={"/profile"} title={rdxCredentialsUser.credentials.data.name} />
                     <LinkButton path={"/appointmentsCreate"} title={"New appointment"} />
                     <LinkButton path={"/appointmentsProfile"} title={"Yours appointments"} />
 

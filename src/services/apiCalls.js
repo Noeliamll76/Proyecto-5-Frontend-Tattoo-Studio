@@ -29,14 +29,15 @@ export const registerAppointment = async (body, token) => {
 export const loginAppointmentsById = async (id) => {
    return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`)
 }
-// export const loginAppointmentsById = async (id, token) => {
-//    return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`, 
-//    {headers:{Authorization:`Bearer ${token}`,},})
-// }
 
 export const logTattooArtist = async (body) => {
    return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
 }
+
+export const loginArtistAppointments = async (id, token) => {
+   return await axios.post(`http://localhost:4000/appointment/loginArtistAppointments/${id}`,{headers:{Authorization:`Bearer ${token}`,},})
+}
+
 
 // export const deleteUser= async (id) => {
 //    return await axios.delete(`http://localhost:4000/blackAlien/deleteuser`, {data : { id: id}})

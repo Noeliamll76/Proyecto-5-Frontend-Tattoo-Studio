@@ -1,8 +1,8 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 
-export const tattoo_artistSlice = createSlice({
-    name: 'tattoo_artist',
+export const artistSlice = createSlice({
+    name: 'artist',
     initialState: {
       credentials: {}
     },
@@ -24,8 +24,8 @@ export const tattoo_artistSlice = createSlice({
     
 });
 
-export const { login, logout } = tattoo_artistSlice.actions;
+export const { login, logout } = artistSlice.actions;
 
-export const tattoo_artistData = (state) => state.tattoo_artist;
+export const artistData = (state) => state.artist;
 
-export default tattoo_artistSlice.reducer;
+export default artistSlice.reducer;

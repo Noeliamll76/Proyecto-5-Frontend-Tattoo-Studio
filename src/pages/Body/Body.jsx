@@ -8,8 +8,9 @@ import { Cards } from '../Cards/Cards';
 import { AppointmentsCreate } from '../AppointmentsCreate/AppointmentsCreate';
 import { AppointmentsProfile } from '../AppointmentsProfile/AppointmentsProfile';
 import { AppointmentsUpdate } from '../AppointmentsUpdate/AppointmentsUpdate';
-
 import { LogProfesional } from '../LogProfesional/LogProfesional';
+import { ArtistAppointments } from '../ArtistAppointments/ArtistAppointments';
+
 
 export const Body = () => {
     return (
@@ -24,8 +25,9 @@ export const Body = () => {
             <Route path="/appointmentsCreate" element={<AppointmentsCreate />}/>
             <Route path="/appointmentsProfile" element={<AppointmentsProfile />}/>
             <Route path="/appointmentsUpdate" element={<AppointmentsUpdate />}/>
-
             <Route path="/logProfesional" element={<LogProfesional />}/>
+            <Route path="/artistAppointments" element={<ArtistAppointments />}/>
+
             </Routes>
          </>
      )

@@ -6,17 +6,15 @@ import { logTattooArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import { validator } from "../../services/useful";
 
-import { useDispatch } from "react-redux";  //useDispatch es necesario para emitir acciones
+import { useDispatch } from "react-redux";  
 import { login } from "../artistSlice";
 
 export const LogProfesional = () => {
 
-    console.log ("Estoy dentro de LogProfesional")
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [msgError, setMsgError] = useState('');
-
     const [credenciales, setCredenciales] = useState({
         email: "",
         password: "",
@@ -63,8 +61,8 @@ export const LogProfesional = () => {
         .then(resultado => {
             dispatch(login({ credentials: resultado.data }))
             setTimeout(() => {
-                navigate("/");
-            }, 1000);
+                navigate("/artistAppointments");
+            }, 500);
         })
         .catch(error => {
             console.log (error.message)

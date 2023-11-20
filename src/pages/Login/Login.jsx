@@ -61,13 +61,6 @@ export const Login = () => {
         logUser(credenciales)
         .then(resultado => {
             dispatch(login({ credentials: resultado.data }))
-
-console.log(resultado)
-console.log(resultado.data)
-console.log({credentials: resultado.data})
-            
-
-
             setTimeout(() => {
                 navigate("/");
             }, 500);
