@@ -6,13 +6,14 @@ export const appointmentSlice = createSlice({
       credentialAppointment: {}
     },
     reducers: {
-      login: (state, action) => {
+      loginAppointment: (state, action) => {
+        console.log(action.payload)
         return {
           ...state,
           ...action.payload
         }
       },
-      logout: (state, action) => {
+      logoutAppointment: (state, action) => {
         return {
           ...state,
           ...action.payload
@@ -23,7 +24,7 @@ export const appointmentSlice = createSlice({
     
 });
 
-export const { login, logout } = appointmentSlice.actions;
+export const { loginAppointment, logoutAppointment} = appointmentSlice.actions;
 
 export const appointmentData = (state) => state.appointment;
 

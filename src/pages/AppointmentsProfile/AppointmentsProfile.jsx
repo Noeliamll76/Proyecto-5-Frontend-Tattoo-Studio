@@ -6,13 +6,14 @@ import { AppointmentCard } from '../../common/AppointmentCard/AppointmentCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../pages/appointmentSlice";
+import { appointmentData, loginAppointment } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
 import { jwtDecode } from 'jwt-decode';
 
 export const AppointmentsProfile = () => {
 
     const rdxUser = useSelector(userData);
+    const rdxAppointment = useSelector(appointmentData)
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToLogin = tokenDecodificated.id
@@ -37,14 +38,13 @@ export const AppointmentsProfile = () => {
                     )
                     .catch(error => {
                         console.log("dentro del cath: " + error)
-                    }
-                    )
+                    } )
             }, 1000)
         }
     }, [appointments]);
 
     const tellMe = (argumento) => {
-        dispatch(login({ credentialAppointment: argumento }))
+        dispatch(loginAppointment({ credentialAppointment: argumento }))
 
 console.log(argumento)
 console.log({ credentialAppointment: argumento })
@@ -57,7 +57,7 @@ console.log({ credentialAppointment: argumento })
     return (
         <div className='citasDesign'>
 
-            <div appointments />
+            <div  />
             {appointments.length > 0 ? (
                 <div className='appointmentsRoster'>
                     {appointments.map(appointment => {

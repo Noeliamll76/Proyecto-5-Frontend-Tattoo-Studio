@@ -1,35 +1,39 @@
 
 import axios from 'axios';
 
-const hostURL="http://localhost:4000"
+const hostURL = "http://localhost:4000"
 
 export const logUser = async (body) => {
    return await axios.post(`${hostURL}/user/login`, body);
 }
 
 export const registerUser = async (body) => {
-      return await axios.post(`${hostURL}/user/register`, body);
-   }
+   return await axios.post(`${hostURL}/user/register`, body);
+}
 
 export const GetTattoo = async () => {
    return await axios.get(`${hostURL}/work/getAllWorks`);
 }
 
 export const GetUser = async (token) => {
-   return await axios.get(`${hostURL}/user/profile`, {headers:{Authorization:`Bearer ${token}`}});
+   return await axios.get(`${hostURL}/user/profile`, { headers: { Authorization: `Bearer ${token}` } });
 }
 
 export const updateUser = async (body, token) => {
-   return await axios.put(`${hostURL}/user/updateUserByToken`, body, {headers:{Authorization:`Bearer ${token}`,},})
+   return await axios.put(`${hostURL}/user/updateUserByToken`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
 export const registerAppointment = async (body, token) => {
-   return await axios.post(`${hostURL}/appointment/register`, body, 
-   {headers:{Authorization:`Bearer ${token}`,},})
+   return await axios.post(`${hostURL}/appointment/register`, body,
+      { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
 export const loginAppointmentsById = async (id) => {
    return await axios.post(`${hostURL}/appointment/loginAppointmentsById/${id}`)
+}
+
+export const updateAppointmentById = async (body, token) => {
+   return await axios.post(`${hostURL}/appointment/updateAppointmentById/${id}`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
 // export const loginAppointmentsById = async (id,token) => {
@@ -41,9 +45,8 @@ export const logTattooArtist = async (body) => {
 }
 
 export const loginArtistAppointments = async (id, token) => {
-   return await axios.post(`${hostURL}/appointment/loginArtistAppointments/${id}`,{headers:{Authorization:`Bearer ${token}`,},})
+   return await axios.post(`${hostURL}/appointment/loginArtistAppointments/${id}`, { headers: { Authorization: `Bearer ${token}`, }, })
 }
-
 
 // export const deleteUser= async (id) => {
 //    return await axios.delete(`${hostURLblackAlien/deleteuser`, {data : { id: id}})
