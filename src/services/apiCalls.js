@@ -1,50 +1,52 @@
 
 import axios from 'axios';
 
+const hostURL="http://localhost:4000"
+
 export const logUser = async (body) => {
-   return await axios.post(`http://localhost:4000/user/login`, body);
+   return await axios.post(`${hostURL}/user/login`, body);
 }
 
 export const registerUser = async (body) => {
-      return await axios.post(`http://localhost:4000/user/register`, body);
+      return await axios.post(`${hostURL}/user/register`, body);
    }
 
 export const GetTattoo = async () => {
-   return await axios.get(`http://localhost:4000/work/getAllWorks`);
+   return await axios.get(`${hostURL}/work/getAllWorks`);
 }
 
 export const GetUser = async (token) => {
-   return await axios.get(`http://localhost:4000/user/profile`, {headers:{Authorization:`Bearer ${token}`}});
+   return await axios.get(`${hostURL}/user/profile`, {headers:{Authorization:`Bearer ${token}`}});
 }
 
 export const updateUser = async (body, token) => {
-   return await axios.put(`http://localhost:4000/user/updateUserByToken`, body, {headers:{Authorization:`Bearer ${token}`,},})
+   return await axios.put(`${hostURL}/user/updateUserByToken`, body, {headers:{Authorization:`Bearer ${token}`,},})
 }
 
 export const registerAppointment = async (body, token) => {
-   return await axios.post(`http://localhost:4000/appointment/register`, body, 
+   return await axios.post(`${hostURL}/appointment/register`, body, 
    {headers:{Authorization:`Bearer ${token}`,},})
 }
 
 export const loginAppointmentsById = async (id) => {
-   return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`)
+   return await axios.post(`${hostURL}/appointment/loginAppointmentsById/${id}`)
 }
 
 // export const loginAppointmentsById = async (id,token) => {
-//    return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`, {headers:{Authorization:`Bearer ${token}`,},})
+//    return await axios.post(`${hostURLappointment/loginAppointmentsById/${id}`, {headers:{Authorization:`Bearer ${token}`,},})
 // }
 
 export const logTattooArtist = async (body) => {
-   return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
+   return await axios.post(`${hostURL}/tattoo_artist/login`, body);
 }
 
 export const loginArtistAppointments = async (id, token) => {
-   return await axios.post(`http://localhost:4000/appointment/loginArtistAppointments/${id}`,{headers:{Authorization:`Bearer ${token}`,},})
+   return await axios.post(`${hostURL}/appointment/loginArtistAppointments/${id}`,{headers:{Authorization:`Bearer ${token}`,},})
 }
 
 
 // export const deleteUser= async (id) => {
-//    return await axios.delete(`http://localhost:4000/blackAlien/deleteuser`, {data : { id: id}})
+//    return await axios.delete(`${hostURLblackAlien/deleteuser`, {data : { id: id}})
 //  }
 
 // const deleteUser = (id) => {

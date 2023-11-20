@@ -20,12 +20,17 @@ body{
 
 .cardSubmit {
 
-    height: 3em;
-    width: 8em;
+    /* height: 3em;
+    width: 8em; */
       
+    background-image: url(../../../public/img/logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
     color: darkgoldenrod;
-    font-weight: bolder;
-    font-size:x-large;
+    /* font-weight: bolder; */
+    font-size:large;
 
 }
 
