@@ -24,6 +24,9 @@ export const AppointmentsProfile = () => {
     useEffect(() => {
         if (appointments.length === 0) {
             setTimeout(() => {
+                console.log(token)
+                console.log(idToLogin)
+                // loginAppointmentsById(idToLogin, token)
                 loginAppointmentsById(idToLogin)
                     .then(
                         citas => {

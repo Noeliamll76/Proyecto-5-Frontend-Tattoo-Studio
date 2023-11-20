@@ -30,6 +30,10 @@ export const loginAppointmentsById = async (id) => {
    return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`)
 }
 
+// export const loginAppointmentsById = async (id,token) => {
+//    return await axios.post(`http://localhost:4000/appointment/loginAppointmentsById/${id}`, {headers:{Authorization:`Bearer ${token}`,},})
+// }
+
 export const logTattooArtist = async (body) => {
    return await axios.post(`http://localhost:4000/tattoo_artist/login`, body);
 }
