@@ -33,7 +33,7 @@ export const loginAppointmentsById = async (id) => {
 }
 
 export const updateAppointmentById = async (body, token) => {
-   return await axios.post(`${hostURL}/appointment/updateAppointmentById/${id}`, body, { headers: { Authorization: `Bearer ${token}`, }, })
+   return await axios.put(`${hostURL}/appointment/updateAppointmentById`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
 // export const loginAppointmentsById = async (id,token) => {

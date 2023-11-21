@@ -1,8 +1,16 @@
+
+@font-face {
+  font-family: roboto;
+  src: url(./assets/Roboto-Regular.ttf);
+}
+
 #root {
   max-width: 1280px;
   margin: 0;
   padding: 0;
   text-align: center;
+  font-family: roboto;
+
 }
 
 .logo {

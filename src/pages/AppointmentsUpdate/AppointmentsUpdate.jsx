@@ -4,6 +4,7 @@ import './AppointmentsUpdate.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
+import { updateAppointmentById } from "../../services/apiCalls";
 
 import { useSelector } from "react-redux";
 import { appointmentData } from "../../pages/appointmentSlice";
@@ -12,16 +13,17 @@ import { jwtDecode } from 'jwt-decode';
 
 export const AppointmentsUpdate = () => {
 
-    const rdxAppointment = useSelector(appointmentData)
     const rdxUser = useSelector(userData);
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToUpdate = tokenDecodificated.id
-   
+    
+    const rdxAppointment = useSelector(appointmentData)
+    
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
-
+    
     const [Appointment, setAppointment] = useState({
         id: '',
         artist_id: '',
@@ -41,45 +43,54 @@ export const AppointmentsUpdate = () => {
         type_workError: '',
         descriptionError: ''
     })
-
+    
     useEffect(() => {
-        setAppointment(rdxAppointment)
-        console.log(Appointment)
+        for (let test in Appointment){
+            if (Appointment[test] ===""){
+                setAppointment(rdxAppointment.credentialAppointment)
+            }
+        }
     }, [Appointment]);
-
-
-    const functionHandler = (e) => {
-        setAppointment((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value,
+    
+    // useEffect(() => {
+        //     setAppointment(rdxAppointment.credentialAppointment)
+        // }, [Appointment]);
+        
+        const errorCheck = (e) => {
+            let error = "";
+            error = validator(e.target.name, e.target.value);
+            setAppointmentError((prevState) => ({
+                ...prevState,
+                [e.target.name + 'Error']: error,
+            }));
+        }
+        
+        const functionHandler = (e) => {
+            setAppointment((prevState) => ({
+                ...prevState,
+                [e.target.name]: e.target.value,
         }));
     }
-
-    const errorCheck = (e) => {
-        let error = "";
-        error = validator(e.target.name, e.target.value);
-        setAppointmentError((prevState) => ({
-            ...prevState,
-            [e.target.name + 'Error']: error,
-        }));
-    }
-
+    
+    
     const sendData = async () => {
         try {
-            console.log(Appointment)
             for (let test in Appointment) { if (Appointment[test] === "") return; }
             for (let test in AppointmentError) { if (AppointmentError[test] !== "") return; }
-            
+            console.log(Appointment)
+            console.log(AppointmentError)
             const body = {
+                id: Appointment.id,
                 user_id: idToUpdate,
                 artist_id: Appointment.artist_id,
                 date: Appointment.date,
                 shift: Appointment.shift,
                 type_work: Appointment.type_work,
                 description: Appointment.description,
-
             };
-            const response = await updateAppointmentById(idToUpdate, body, token);
+            console.log(token)
+            console.log(body)
+            const response = await updateAppointmentById(body, token);
             
             setMsgError(response.data.message)
             console.log (response)
@@ -102,7 +113,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.artist_idError !== "" ? 'inputDesignError' : ''}`}
                     type={"number"}
                     name={"artist_id"}
-                    value={Appointment.credentialAppointment.artist_id}
+                    value={Appointment.artist_id}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
@@ -115,7 +126,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.Tattoo_artistError !== "" ? 'inputDesignError' : ''}`}
                     type={"text"}
                     name={"Tattoo_artist"}
-                    value={Appointment.credentialAppointment.Tattoo_artist}
+                    value={Appointment.Tattoo_artist}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
@@ -127,7 +138,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.dateError !== "" ? 'inputDesignError' : ''}`}
                     type={"date"}
                     name={"date"}
-                    value={Appointment.credentialAppointment.date}
+                    value={Appointment.date}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
@@ -140,7 +151,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.shiftError !== "" ? 'inputDesignError' : ''}`}
                     type={"text"}
                     name={"shift"}
-                    value={Appointment.credentialAppointment.shift}
+                    value={Appointment.shift}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
@@ -153,7 +164,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.type_workError !== "" ? 'inputDesignError' : ''}`}
                     type={"text"}
                     name={"type_work"}
-                    value={Appointment.credentialAppointment.type_work}
+                    value={Appointment.type_work}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />
@@ -166,7 +177,7 @@ export const AppointmentsUpdate = () => {
                     design={`inputDesign ${AppointmentError.descriptionError !== "" ? 'inputDesignError' : ''}`}
                     type={"text"}
                     name={"description"}
-                    value={Appointment.credentialAppointment.description}
+                    value={Appointment.description}
                     functionProp={functionHandler}
                     functionBlur={errorCheck}
                 />

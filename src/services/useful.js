@@ -13,7 +13,8 @@ export const validator = (type, value) => {
 
         case 'name':
         case 'surname':
-            if (value.length > 25) {
+        case 'Tattoo_artist':
+            if (value.length > 75) {
                 return "Escribe un nombre correcto"
             } else {
                 return ""
