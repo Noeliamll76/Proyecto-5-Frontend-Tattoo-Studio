@@ -6,14 +6,14 @@ import { AppointmentCard } from '../../common/AppointmentCard/AppointmentCard';
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { appointmentData, loginAppointment } from "../../pages/appointmentSlice";
+import { loginAppointment } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
 import { jwtDecode } from 'jwt-decode';
 
 export const AppointmentsProfile = () => {
 
     const rdxUser = useSelector(userData);
-    const rdxAppointment = useSelector(appointmentData)
+    // const rdxAppointment = useSelector(appointmentData)
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToLogin = tokenDecodificated.id

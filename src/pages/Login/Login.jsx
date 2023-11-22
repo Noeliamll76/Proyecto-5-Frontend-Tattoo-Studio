@@ -61,9 +61,15 @@ export const Login = () => {
         logUser(credenciales)
         .then(resultado => {
             dispatch(login({ credentials: resultado.data }))
-            setTimeout(() => {
-                navigate("/");
-            }, 500);
+            console.log(resultado)
+            console.log(resultado.data.data.role)
+            setTimeout(() => 
+            {
+                resultado.data.data.role==="super_admin"
+                ? ( navigate("/SuperAdmin") )
+                : ( navigate("/"))
+            }
+            , 500);
         })
         .catch(error => {
             console.log (error.message)

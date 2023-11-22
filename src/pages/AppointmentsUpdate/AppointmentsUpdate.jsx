@@ -28,7 +28,6 @@ export const AppointmentsUpdate = () => {
     const [artists, setArtists] = useState([]);
 
     const [Appointment, setAppointment] = useState({
-        // id: '',
         artist: '',
         Tattoo_artist: '',
         date: '',
@@ -38,7 +37,6 @@ export const AppointmentsUpdate = () => {
     })
 
     const [AppointmentError, setAppointmentError] = useState({
-        idError: '',
         artistError: '',
         Tattoo_artistError: '',
         dateError: '',

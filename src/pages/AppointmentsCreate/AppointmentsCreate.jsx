@@ -6,7 +6,6 @@ import { validator } from "../../services/useful";
 import { registerAppointment, GetArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
