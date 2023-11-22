@@ -25,15 +25,10 @@ export const AppointmentsProfile = () => {
     useEffect(() => {
         if (appointments.length === 0) {
             setTimeout(() => {
-                console.log(token)
-                console.log(idToLogin)
-                // loginAppointmentsById(idToLogin, token)
                 loginAppointmentsById(idToLogin)
                     .then(
                         citas => {
                             setAppointments(citas.data.data)
-                            console.log(setAppointments)
-                            console.log(citas)
                         }
                     )
                     .catch(error => {
@@ -45,10 +40,6 @@ export const AppointmentsProfile = () => {
 
     const tellMe = (argumento) => {
         dispatch(loginAppointment({ credentialAppointment: argumento }))
-
-console.log(argumento)
-console.log({ credentialAppointment: argumento })
-
         setTimeout(() => {
             navigate("/appointmentsUpdate");
         }, 500);

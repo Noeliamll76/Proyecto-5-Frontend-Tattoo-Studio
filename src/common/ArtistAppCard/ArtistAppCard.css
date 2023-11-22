@@ -12,14 +12,14 @@
     /* flex-direction: row; */
     flex-direction: column;
 
-    background-color: darkgrey;
+    background-color: darkgoldenrod;
     color: black;
     border: 0.2 solid black;
 
     transition: 1s;
 
     margin: 1em;
-    
+    font-size: medium;
 }
 
 .artistAppCardDesign:hover {
@@ -27,7 +27,3 @@
     transition: 1s;
 }
 
-.selectedCard {
-    background-color: darkgoldenrod;
-    color: rgb(38, 36, 36);
-}

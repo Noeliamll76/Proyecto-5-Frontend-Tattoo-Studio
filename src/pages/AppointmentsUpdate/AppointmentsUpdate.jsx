@@ -19,7 +19,7 @@ export const AppointmentsUpdate = () => {
     const idToUpdate = tokenDecodificated.id
 
     const rdxAppointment = useSelector(appointmentData)
-console.log (rdxAppointment)
+    console.log(rdxAppointment)
 
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
@@ -92,7 +92,7 @@ console.log (rdxAppointment)
         try {
             console.log(idToDelete)
             console.log(token)
-            const borrado = await deleteAppointmentById({id: idToDelete}, token)
+            const borrado = await deleteAppointmentById({ id: idToDelete }, token)
             setMsgError(borrado.data.message)
             console.log(borrado)
             setTimeout(() => {
@@ -112,11 +112,11 @@ console.log (rdxAppointment)
             for (let test in AppointmentError) {
                 if (AppointmentError[test] !== "") return;
             }
- 
+
             const body = {
                 id: rdxAppointment.credentialAppointment.id,
                 user_id: idToUpdate,
-                Tattoo_artist : artists.name || Appointment.Tattoo_artist,
+                Tattoo_artist: artists.name || Appointment.Tattoo_artist,
                 artist_id: Appointment.artist || rdxAppointment.credentialAppointment.artist_id,
                 date: Appointment.date,
                 shift: Appointment.shift,

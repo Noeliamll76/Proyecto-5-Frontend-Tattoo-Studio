@@ -8,46 +8,38 @@ import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { artistData } from "../../pages/artistSlice";
-import { jwtDecode } from 'jwt-decode';
+
 
 export const ArtistAppointments = () => {
 
     const rdxArtist = useSelector(artistData);
-console.log (rdxArtist)
-    const token = rdxArtist.credentials.token
-    const tokenDecodificated = jwtDecode(token)
-    const idToLogin = tokenDecodificated.id
-console.log(idToLogin)
-
+    const token = rdxArtist.credentials.token;
+console.log (rdxArtist.credentials.data.name)
     const navigate = useNavigate();
 
     const [artistApp, setArtistApp] = useState([]);
 
     useEffect(() => {
         if (artistApp.length === 0) {
+            console.log(token)
+            console.log(artistApp)
             setTimeout(() => {
-                loginArtistAppointments(idToLogin, token)
+                loginArtistAppointments(token)
                     .then(
                         citas => {
                             setArtistApp(citas.data.data)
-                            console.log(setArtistApp)
+                            console.log(artistApp)
                             console.log(citas)
                         }
                     )
                     .catch(error => {
                         console.log("dentro del cath: " + error)
+                        navigate("/LogProfesional")
                     }
                     )
-            }, 500)
+            }, 1000)
         }
     }, [artistApp]);
-
-    const tellMe = (argumento) => {
-       console.log(argumento)
-        setTimeout(() => {
-            navigate("/");
-        }, 500);
-    }
 
     return (
         <div className='citasDesign'>
@@ -59,7 +51,7 @@ console.log(idToLogin)
                         return (
                             <ArtistAppCard
                                 key={appointment.id}
-                                tattoo_artist={appointment.Tattoo_artist}
+                                tattoo_artist={rdxArtist.credentials.data.name}
                                 user_id={appointment.user_id}
                                 Client={appointment.Client}
                                 phone={appointment.phone}
@@ -67,17 +59,17 @@ console.log(idToLogin)
                                 description={appointment.description}
                                 date={appointment.date}
                                 shift={appointment.shift}
-                                selected={"selectedCard"}
-                                selectFunction={() => tellMe(appointment)}
+
                             />
                         )
                     })
                     }
                 </div>
             )
-                : (
-                    <div><LoadingSpinner /></div>
-                )
+            : 
+            (
+                <div><LoadingSpinner /></div>
+            )
             }
         </div>
     )
