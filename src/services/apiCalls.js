@@ -40,8 +40,9 @@ export const updateAppointmentById = async (body, token) => {
    return await axios.put(`${hostURL}/appointment/updateAppointmentById`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
-export const deleteAppointment = async (body, token) => {
-   return await axios.delete(`${hostURL}/appointment/deleteAppointmentById`, body, { headers: { Authorization: `Bearer ${token}`, }, })
+export const deleteAppointmentById = async (body, token) => {
+return await axios.delete(`${hostURL}/appointment/deleteAppointmentById`, { headers: { Authorization: `Bearer ${token}`
+   }, data: body });
 }
 
 export const logTattooArtist = async (body) => {
