@@ -34,7 +34,9 @@ export const Body = () => {
             <Route path="/superAdmin" element={<SuperAdmin />}/>
             <Route path="/userList" element={<UserList />}/> 
             <Route path="/userAppointments" element={<UserAppointments />}/> 
-            <Route path="/createArtist" element={<CreateArtist />}/>
+            <Route path="/createArtist" element={<CreateArtist />}/> 
+            
+
             </Routes>
          </>
      )

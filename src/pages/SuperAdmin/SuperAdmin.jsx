@@ -5,36 +5,33 @@ import { useNavigate } from 'react-router-dom';
 export const SuperAdmin = () => {
 
     const navigate = useNavigate();
-    const [change, setChange] = useState(true);
+    
    
 
     const callUsersListClick = () => {
-        setChange(!change)
-        navigate("/");
-        // navigate("/userList");
+        
+        navigate("/userList");
     }
     const callUsersAppointmentsClick = () => {
-        setChange(!change)
-        navigate("/");
-        // navigate("/userAppointments");
+       
+        navigate("/userAppointments");
     }
     const callCreateArtistClick = () => {
-        setChange(!change)
-        // navigate("/createArtist");
-        navigate("/");
+        
+        ("/createArtist");
     }
     return (
         <>
-            <div className="homeDesign">
-                <div className={`cardSubmit ${!change}`} onClick={callUsersListClick}>
+            <div className="superDesign">
+                <div className={`superSubmit `} onClick={callUsersListClick}>
                 Show user list
                 </div>
         
-                <div className={`cardSubmit ${!change}`} onClick={callUsersAppointmentsClick}>
+                <div className={`superSubmit `} onClick={callUsersAppointmentsClick}>
                 Show user appointments
                 </div>
           
-                <div className={`cardSubmit ${!change}`} onClick={callCreateArtistClick}>
+                <div className={`superSubmit `} onClick={callCreateArtistClick}>
                 Create tattoo artist
                 </div>
 
