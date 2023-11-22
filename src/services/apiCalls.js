@@ -40,9 +40,9 @@ export const updateAppointmentById = async (body, token) => {
    return await axios.put(`${hostURL}/appointment/updateAppointmentById`, body, { headers: { Authorization: `Bearer ${token}`, }, })
 }
 
-// export const loginAppointmentsById = async (id,token) => {
-//    return await axios.post(`${hostURLappointment/loginAppointmentsById/${id}`, {headers:{Authorization:`Bearer ${token}`,},})
-// }
+export const deleteAppointment = async (body, token) => {
+   return await axios.delete(`${hostURL}/appointment/deleteAppointmentById`, body, { headers: { Authorization: `Bearer ${token}`, }, })
+}
 
 export const logTattooArtist = async (body) => {
    return await axios.post(`${hostURL}/tattoo_artist/login`, body);
@@ -51,14 +51,3 @@ export const logTattooArtist = async (body) => {
 export const loginArtistAppointments = async (id, token) => {
    return await axios.post(`${hostURL}/appointment/loginArtistAppointments/${id}`, { headers: { Authorization: `Bearer ${token}`, }, })
 }
-
-// export const deleteUser= async (id) => {
-//    return await axios.delete(`${hostURLblackAlien/deleteuser`, {data : { id: id}})
-//  }
-
-// const deleteUser = (id) => {
-//    deleteAUser(id).then((resultado) => {
-//      console.log(resultado);
-//      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-//    });
-//  };

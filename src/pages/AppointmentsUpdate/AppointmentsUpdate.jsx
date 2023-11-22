@@ -4,7 +4,7 @@ import './AppointmentsUpdate.css'
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
-import { updateAppointmentById, GetArtist } from "../../services/apiCalls";
+import { updateAppointmentById, GetArtist, deleteAppointment } from "../../services/apiCalls";
 
 import { useSelector } from "react-redux";
 import { appointmentData } from "../../pages/appointmentSlice";
@@ -25,10 +25,9 @@ export const AppointmentsUpdate = () => {
     const [msgError, setMsgError] = useState();
 
     const [artists, setArtists] = useState([]);
-    const [artist, setArtist] = useState([]);
 
     const [Appointment, setAppointment] = useState({
-        id: '',
+        // id: '',
         artist: '',
         Tattoo_artist: '',
         date: '',
@@ -51,18 +50,19 @@ export const AppointmentsUpdate = () => {
         for (let test in Appointment) {
             if (Appointment[test] === "") {
                 setAppointment(rdxAppointment.credentialAppointment)
+
             }
         }
     }, [Appointment]);
 
     useEffect(() => {
-        console.log (artists)
-        if (artists.length===0) {
+        console.log(artists)
+        if (artists.length === 0) {
             GetArtist()
                 .then(
                     results => {
-                         setArtists(results.data.data)
-                     }
+                        setArtists(results.data.data)
+                    }
                 )
                 .catch(error => console.log(error))
         } else {
@@ -86,45 +86,60 @@ export const AppointmentsUpdate = () => {
             [e.target.name]: e.target.value,
         }));
     }
-
-
-    const sendData = async () => {
+    
+    const idToDelete = (rdxAppointment.credentialAppointment.id)
+    const deleteData = async () => {
         try {
-            for (let test in Appointment) {
-                if (Appointment[test] === "") return; }
-
-            for (let test in AppointmentError) { 
-                if (AppointmentError[test] !== "") return; }
-
-            const body = {
-                id: Appointment.id,
-                user_id: idToUpdate,
-                artist_id: Appointment.artist,
-                date: Appointment.date,
-                shift: Appointment.shift,
-                type_work: Appointment.type_work,
-                description: Appointment.description,
-            };
-            console.log(token)
-            console.log(body)
-
-            const response = await updateAppointmentById(body, token);
-
-            setMsgError(response.data.message)
-            console.log(response)
+            console.log (idToDelete)
+            console.log (token)
+            const borrado = await deleteAppointment(idToDelete, token)
+            setMsgError(borrado.data.message)
+            console.log(borrado)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/AppointmentsProfile");
             }, 1000);
         }
         catch (error) { console.log(error) }
-    };
+    }
 
-    return (
-        <div className="appointmentDesign">
-            <div><img className="logoDesign" src={"./img/logo.png"} /></div>
+const sendData = async () => {
+    try {
+        for (let test in Appointment) {
+            if (Appointment[test] === "") return;
+        }
 
-           
+        for (let test in AppointmentError) {
+            if (AppointmentError[test] !== "") return;
+        }
+
+        const body = {
+            id: rdxAppointment.credentialAppointment.id,
+            user_id: idToUpdate,
+            artist_id: Appointment.artist,
+            date: Appointment.date,
+            shift: Appointment.shift,
+            type_work: Appointment.type_work,
+            description: Appointment.description,
+        };
+        console.log(token)
+        console.log(body)
+        const response = await updateAppointmentById(body, token);
+        setMsgError(response.data.message)
+        console.log(response)
+        setTimeout(() => {
+            setIsEnabled(true)
+            navigate("/AppointmentsProfile");
+        }, 1000);
+    }
+    catch (error) { console.log(error) }
+};
+
+return (
+    <div className="appointmentDesign">
+        {/* <div><img className="logoDesign" src={"./img/logo.png"} /></div> */}
+        <div className="appointmentForm">
+
             <div>Tattoo artist :
                 <CustomInput
                     disabled={isEnabled}
@@ -136,20 +151,19 @@ export const AppointmentsUpdate = () => {
                     functionBlur={errorCheck}
                 />
                 {
-                artists.length>0 &&
-                <select name="artist" onChange={functionHandler}>
-                    <option>Select an artist</option>
-                    {
-                        artists.map(
-                            artist => {
-                                return (
-                                    <option key={artist.id}value={artist.id}>{artist.name}</option>
-                                )
-                            }
-                        )
-                    }
-                </select>
-            }
+                    <select name="artist" onChange={functionHandler}>
+                        <option>Select an artist</option>
+                        {
+                            artists.map(
+                                artist => {
+                                    return (
+                                        <option key={artist.id} value={artist.id}>{artist.name}</option>
+                                    )
+                                }
+                            )
+                        }
+                    </select>
+                }
                 <div className='errorMsg'>{AppointmentError.Tattoo_artistError}</div>
             </div>
 
@@ -178,28 +192,20 @@ export const AppointmentsUpdate = () => {
                 />
                 <select name="shift" onChange={functionHandler}>
                     <option>Select an shift</option>
-                    <option value='Mañana'>Mañana </option> 
+                    <option value='Mañana'>Mañana </option>
                     <option value='Tarde'>Tarde</option>
                 </select>
                 <div className='errorMsg'>{AppointmentError.shiftError}</div>
             </div>
 
-            <div>Type work :
-                {Appointment.type_work} 
-                {/* <CustomInput
-                    disabled={isEnabled}
-                    design={`inputDesign ${AppointmentError.type_workError !== "" ? 'inputDesignError' : ''}`}
-                    type={"text"}
-                    name={"type_work"} */}
-                    {/* functionProp={functionHandler}
-                    functionBlur={errorCheck}
-                /> */}
+            <div className='selectDesign' >Type work :
+                {Appointment.type_work}
                 <select name="type_work" onChange={functionHandler}>
                     <option>Select an type work</option>
-                    <option value='Tattoo'>Tattoo </option> 
-                    <option value='Piercing'>Piercing</option>
+                    <option value='tattoo'>Tattoo </option>
+                    <option value='piercing'>Piercing</option>
                 </select>
-               
+
                 <div className='errorMsg'>{AppointmentError.type_workError}</div>
             </div>
 
@@ -218,13 +224,17 @@ export const AppointmentsUpdate = () => {
                 <div className='errorMsg'>{msgError}</div>
 
             </div>
-            
+
             {
                 isEnabled
                     ? (<div className="buttonSubmit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
 
                     : (<div className="buttonSubmit" onClick={() => sendData()}>UPDATE DATA</div>)
+
             }
+            <div className="buttonSubmit" onClick={() => deleteData()}>DELETE DATA</div>
+
         </div>
-    );
+    </div>
+);
 }

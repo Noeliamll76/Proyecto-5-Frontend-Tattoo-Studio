@@ -10,13 +10,27 @@
     align-items:center;
    
     color: whitesmoke;
-    font-size: large;
+    font-size:medium;
     background-color: rgb(20, 20, 20);
 
     background-image: url(../../../public/img/salon3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     overflow-y: scroll;
+    z-index: 0;
+}
+
+.appointmentForm {
+    height: 75vh;
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    font-size: large;
+    background-color: rgb(40, 39, 39);
+    z-index: 1;
 }
 
 .errorMsg {
@@ -30,7 +44,7 @@
     width: 8em;
 
     border-radius: 1em;
-    background-color: crimson;
+    background-color: darkolivegreen;
     color: white;
     font-size: large;
 
@@ -44,4 +58,15 @@
     transition: 0.4s;
     background-color: lightcoral;
     cursor: pointer;
+}
+
+.selectDesign {
+
+    height: 2em;
+    width: 25em;
+
+    border-radius: 1em;
+    border: 0.5 solid darkcyan;
+
+    margin-bottom: 3em;
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './AppointmentsCreate.css';
 import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
-import { registerAppointment } from "../../services/apiCalls";
+import { registerAppointment, GetArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 
 import DatePicker from 'react-datepicker';
@@ -19,10 +19,12 @@ export const AppointmentsCreate = () => {
   const appointmentIdUser = (rdxUser.credentials.data.id)
   const [msgError, setMsgError] = useState();
 
+  const [artists, setArtists] = useState([]);
+
   const token = rdxUser.credentials.token
 
   const [appointment, setAppointment] = useState({
-    user_id: '',
+
     artist_id: '',
     date: '',
     shift: '',
@@ -31,7 +33,7 @@ export const AppointmentsCreate = () => {
   });
 
   const [appointmentError, setAppointmentError] = useState({
-    user_idError: '',
+
     artist_idError: '',
     dateError: '',
     shiftError: '',
@@ -42,6 +44,21 @@ export const AppointmentsCreate = () => {
   useEffect(() => {
     console.log(appointment);
   }, [appointment]);
+
+  useEffect(() => {
+    console.log(artists)
+    if (artists.length === 0) {
+      GetArtist()
+        .then(
+          results => {
+            setArtists(results.data.data)
+          }
+        )
+        .catch(error => console.log(error))
+    } else {
+      console.log("artists vale...", artists)
+    }
+  }, [artists]);
 
   const functionHandler = (e) => {
     setAppointment((prevState) => ({
@@ -71,41 +88,47 @@ export const AppointmentsCreate = () => {
         return;
       }
     }
-   
-    registerAppointment(appointment, token)
+    const body = {
+      user_id: token.id,
+      artist_id: appointment.artist_id,
+      date: appointment.date,
+      shift: appointment.shift,
+      type_work: appointment.type_work,
+      description: appointment.description
+    }
+
+    registerAppointment(body, token)
       .then(resultado => {
         if (resultado.data.message === "Appointment created") {
           setTimeout(() => { return ("Cita creada correctamente") }, 500)
           navigate("/");
         }
       })
-      .catch(error => console.log(error));
+      .catch(error);
+    console.log(error)
+      ;
   }
 
   return (
     <div className="appointmentDesign">
+      <div className='errorMsg'>{msgError}</div>
       <div><img className="logoDesign" src={"./img/logo.png"} /></div>
-      <div>User id :
-        <CustomInput
-          design={`inputDesign ${appointmentError.user_idError !== "" ? 'inputDesignError' : ''}`}
-          type={"number"}
-          name={"user_id"}
-          // value={appointmentIdUser}
-          functionProp={functionHandler}
-          functionBlur={errorCheck}
-        />
-        <div className='errorMsg'>{appointmentError.user_idError}</div>
-      </div>
 
-      <div>Id tattoo artist :
-        <CustomInput
-          design={`inputDesign ${appointmentError.artist_idError !== "" ? 'inputDesignError' : ''}`}
-          type={"number"}
-          name={"artist_id"}
-          functionProp={functionHandler}
-          functionBlur={errorCheck}
-        />
-        <div className='errorMsg'>{appointmentError.artist_idError}</div>
+      <div>Tattoo artist :
+        {
+          <select name="artist_id" onChange={functionHandler}>
+            <option>Select an artist</option>
+            {
+              artists.map(
+                artist_id => {
+                  return (
+                    <option key={artist_id.id} value={artist_id.id}>{artist_id.name}</option>
+                  )
+                }
+              )
+            }
+          </select>
+        }
       </div>
 
       <div>Date :
@@ -151,7 +174,7 @@ export const AppointmentsCreate = () => {
         />
         <div className='errorMsg'>{appointmentError.descriptionError}</div>
       </div>
-      <div className='errorMsg'>{msgError}</div>
+
 
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
 
