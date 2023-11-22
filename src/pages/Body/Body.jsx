@@ -12,7 +12,7 @@ import { LogProfesional } from '../LogProfesional/LogProfesional';
 import { ArtistAppointments } from '../ArtistAppointments/ArtistAppointments';
 import { SuperAdmin } from '../SuperAdmin/SuperAdmin';
 import { UserList } from '../UserList/UserList';
-import { userAppointments } from '../UserAppointments/UserAppointments';
+import { UserAppointments } from '../UserAppointments/UserAppointments';
 import { CreateArtist } from '../CreateArtist/CreateArtist';
 
 
@@ -30,10 +30,11 @@ export const Body = () => {
             <Route path="/appointmentsProfile" element={<AppointmentsProfile />}/>
             <Route path="/appointmentsUpdate" element={<AppointmentsUpdate />}/>
             <Route path="/logProfesional" element={<LogProfesional />}/>
+            <Route path="/artistAppointments" element={<ArtistAppointments />}/>
             <Route path="/superAdmin" element={<SuperAdmin />}/>
             <Route path="/userList" element={<UserList />}/> 
-            <Route path="/userAppointments" element={<userAppointments />}/> 
-            <Route path="/createArtist" element={<createArtist />}/>
+            <Route path="/userAppointments" element={<UserAppointments />}/> 
+            <Route path="/createArtist" element={<CreateArtist />}/>
             </Routes>
          </>
      )
