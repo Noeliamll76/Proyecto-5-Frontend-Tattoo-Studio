@@ -21,10 +21,10 @@
 
      height: 3em;
     width: 8em; 
-    background-image: url(../../../public/img/logo.png);
+    /* background-image: url(../../../public/img/logo.png);
     background-repeat: no-repeat;
-    background-size: cover; 
-    height: 300px;
+    background-size: cover;  */
+    /* height: 300px; */
     border-radius: 1em;
     border: 0.5 solid darkcyan;
     background-color: black;
