@@ -226,12 +226,12 @@ export const AppointmentsUpdate = () => {
 
                 {
                     isEnabled
-                        ? (<div className="buttonSubmit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
+                        ? (<div className="button1Submit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
 
-                        : (<div className="buttonSubmit" onClick={() => sendData()}>UPDATE DATA</div>)
+                        : (<div className="button1Submit" onClick={() => sendData()}>UPDATE DATA</div>)
 
                 }
-                <div className="buttonSubmit" onClick={() => deleteData()}>DELETE DATA</div>
+                <div className="buttonDelete" onClick={() => deleteData()}>DELETE DATA</div>
 
             </div>
         </div>

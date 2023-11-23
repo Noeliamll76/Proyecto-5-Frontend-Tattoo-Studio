@@ -1,16 +1,15 @@
-
 .appointmentDesign {
 
     height: 88vh;
     width: 100vw;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-   
+    align-items: center;
+
     color: whitesmoke;
-    font-size:medium;
+    font-size: medium;
     background-color: rgb(20, 20, 20);
 
     background-image: url(../../../public/img/salon3.jpg);
@@ -27,30 +26,52 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     font-size: large;
     background-color: rgb(40, 39, 39);
     z-index: 1;
 }
 
 .errorMsg {
-    font-size:medium;
+    font-size: medium;
     color: red;
 }
 
-.buttonSubmit {
+.button1Submit {
 
-    height: 3em;
+    height: 2em;
     width: 8em;
-
+    margin-top: 0.5em;
     border-radius: 1em;
-    background-color: darkolivegreen;
+    background-color: green;
     color: white;
     font-size: large;
 
     display: flex;
     justify-content: center;
-    align-items: unset;
+    align-items: center;
+}
+
+.button1Submit:hover {
+
+    transition: 0.4s;
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+.buttonDelete {
+
+    height: 2em;
+    width: 8em;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    background-color: red;
+    color: white;
+    font-size: large;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonSubmit:hover {

@@ -1,97 +1,16 @@
 
-EJEMPLO A SEGUIR
-
-## Proyecto Frontend - Gestión de Citas de un Estudio de Tatuaje
-
-Este proyecto es un frontend desarrollado en React utilizando JavaScript, CSS y HTML. Está diseñado para interactuar con un backend realizado en JavaScript. El objetivo principal del proyecto es gestionar las citas de un estudio de tatuaje mediante una página web.
-
-## Tecnologías Utilizadas
-
-En este proyecto se utilizaron las siguientes tecnologías:
-
-- React: ![React](https://www.iconfinder.com/icons/4519117/display_launcher_programming_mobile_mobile_app_phone_react_icon)
-- JavaScript: ![JavaScript](https://www.iconfinder.com/icons/4519099/code_launcher_programming_language_icon)
-- CSS: ![CSS](https://www.iconfinder.com/icons/5330787/css_file_format_icon)
-- HTML: ![HTML](https://www.iconfinder.com/icons/4529392/css_html_html5_language_programming_icon)
-- Visual Studio Code: ![VSCode](https://www.iconfinder.com/icons/299372/code_development_developer_editing_editor_file_interface_programming_visual_icon)
-
-## Estructura del Proyecto
-
-El proyecto consta de las siguientes secciones:
-
-- Tabla Users: Gestiona los usuarios registrados en el estudio de tatuaje.
-- Tattoo Artist: Permite gestionar los tatuadores del estudio y sus especialidades.
-- Appointments: Gestiona las citas agendadas por los clientes.
-- Works: Muestra los trabajos realizados por los tatuadores del estudio.
-
-## Diagrama de Flujo
-
-A continuación se muestra el diagrama de flujo del backend:
-
-![Diagrama de Flujo del Backend](ruta/del/diagrama/de/flujo)
-
-## Vistas del Proyecto
-
-A continuación se muestran algunas imágenes de las vistas del proyecto:
-
-- Vista de Inicio:
-![Vista de Inicio](ruta/de/la/imagen)
-
-- Vista de Usuarios:
-![Vista de Usuarios](ruta/de/la/imagen)
-
-- Vista de Tatuadores:
-![Vista de Tatuadores](ruta/de/la/imagen)
-
-- Vista de Citas:
-![Vista de Citas](ruta/de/la/imagen)
-
-- Vista de Trabajos:
-![Vista de Trabajos](ruta/de/la/imagen)
-
-## Futuras Mejoras
-
-Este proyecto puede ser mejorado en las siguientes áreas:
-
-- Incorporar autenticación de usuarios para proteger la información sensible.
-- Implementar un sistema de pagos para realizar reservas.
-- Agregar funcionalidades de calendario para facilitar la gestión de citas.
-- Mejorar la interfaz de usuario para una experiencia más intuitiva.
-
-¡Siéntete libre de contribuir y agregar mejoras en este proyecto!
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/geekhubs.png" width="50%"/>
-    </a>
-</div>
 
 <h1> ## FRONTEND TATTOO & PIERCING STUDIO 🖋️ ##</h1>
 
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-home.png" width="70%"/>
-    </a>
-</div>
+**Proyecto nº 5 FRONTEND Estudio de Tatuaje del Bootcampt Full Stack Developer en GeeksHubs Academy**
 
-
-**Quinto proyecto del Bootcampt Full Stack Developer en GeeksHubs Academy, Valencia**
-
-
----
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/giphy.gif" width="50%"/>
-    </a>
-</div>
 
 
 # Table of Contents
 
 - ### 🚀 [Descripcion](#descripcion)
-- ### 🎯 [Objectivo](#objectivo)
-- ### 👩🏽‍💻 [Stack](#stack)
-- ### 🌱 [Componentes](#componentes)
+- ### 🎯 [Objetivo de la aplicación](#objetivo de la aplicación)
+- ### 👩🏽‍💻 [Tecnologias](#tecnologias)
 - ### 👀 [Vistas](#vistas)
 - ### 🔝 [Mejoras](#mejoras)
 - ### ⚙️ [Local Installation Instructions](#local-installation-instructions)
@@ -101,16 +20,21 @@ Este proyecto puede ser mejorado en las siguientes áreas:
 
 ## Descripción del Proyecto
 
-Este proyecto es la parte frontal (frontend) de un sistema de gestión de citas para un estudio de tatuajes y piercings. Forma parte del quinto proyecto del Bootcamp Full Stack Developer en GeeksHubs Academy, Valencia. La aplicación permite a los usuarios registrarse, realizar login, acceder a su área de cliente y gestionar citas con tatuadores. Además, proporciona funcionalidades específicas para el superadmin, como la gestión de usuarios y citas.
+Este proyecto es el frontend de un sistema de gestión de citas para un estudio de tatuajes y piercings, que complementa el backend desarrollado en el anterior proyecto en la formación del Bootcamp Full Stack Developer en GeeksHubs Academy.
+ En esta aplicación, podemos registrarnos como nuevos usuarios, y loguearnos para poder acceder al resto de la aplicación.
+ A la hora de realizar el login, se diferencia entre usuario y super-admin, cambiando el header dependiendo del acceso al que se está permitido, dependiendo del role al que pertenece.
+ En el caso de tener un role super-admin, puede acceder a otro menú exclusivo donde puede realizar el listado de todos los usuarios, todas las citas y registrar nuevos tatuadores.
+ También hay un apartado exclusivo de profesionales, en el que hay que loguearse y le permite ver sus citas.
 
-## Objetivo
+
+## Objetivo de la aplicación
 
 - Registro y login de usuarios.
-- Visualización y gestión de citas para clientes y tatuadores.
-- Área de usuario con datos personales.
+- Vista de las citas del usuario con opción de seleccionar una de ellas y permitirle la edición, modificación y borrado en la misma vista.
 - Funcionalidades adicionales para el superadmin.
 
-## Stack
+
+## Tecnologías
 
 El frontend ha sido desarrollado utilizando tecnologías como React, Redux,  Javascript, HTML, Bootstrap, CSS, GIT y GitHub.
 </br>
@@ -123,193 +47,101 @@ El frontend ha sido desarrollado utilizando tecnologías como React, Redux,  Jav
 </br>
 </br>
 
-## Componentes
-
-### Componente Header
-
-El componente `Header` es la barra de navegación superior de la aplicación. Proporciona acceso a diferentes secciones de la aplicación, dependiendo del estado del usuario y su rol. Aquí hay una breve descripción de las características clave del componente:
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-headerç.png" width="70%"/>
-    </a>
-</div>
-</br>
-</br>
-- **Logo:**
-  - Se muestra el logo de la aplicación, que sirve como enlace para volver a la página principal.
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/logo.png" width="20%"/>
-    </a>
-</div>
-</br>
-</br>
-
-- **Menú de Navegación:**
-  - El menú de navegación incluye enlaces a secciones como "Home", "Artists", "Gallery", "Profile", "Appointments" y "Update Profile". Los enlaces específicos disponibles dependen del estado del usuario (logueado o no) y su rol (superadmin o no).
-  
-- **Burger Icon:**
-  - Un icono de hamburguesa se utiliza para alternar la visibilidad del menú en dispositivos móviles o cuando el espacio de la pantalla es limitado. Al hacer clic en este icono, se abre o cierra el menú.
-
-- **Autenticación y Roles:**
-  - Si el usuario está autenticado (`rdxToken` existe), se muestran enlaces adicionales relacionados con su perfil y citas.
-  - Si el usuario tiene el rol de "super_admin", se añaden enlaces extra para acceder a funciones de administración de usuarios y citas.
-
-- **Botón de Cierre de Sesión:**
-  - Si el usuario está autenticado, se muestra un botón para cerrar sesión que permite al usuario cerrar su sesión activa.
-
-- **Lógica del Menú Desplegable:**
-  - Se utiliza una lógica de ternaria (`menuOpened ? 'menu-opened' : ''`) para aplicar clases CSS específicas cuando el menú está abierto. Esto se aplica tanto al ícono de hamburguesa como a la lista de enlaces, lo que permite controlar su apariencia basándose en el estado `menuOpened`.
-
-### Ternaria para Cambio en el Menú
-```jsx
-<div className={`header-style ${menuOpened ? 'menu-opened' : ''}`}>
-  {/* ... (código del menú) */}
-  <div className={`link-buttons ${menuOpened ? 'menu-links' : ''}`}>
-    {/* ... (código de los enlaces) */}
-  </div>
-</div>
-```
-
-- `header-style` y `link-buttons` son clases de estilo base.
-- `menu-opened` y `menu-links` son clases que se aplican condicionalmente si `menuOpened` es `true`.
-
-Esta lógica de ternaria garantiza que el estilo del menú y los enlaces cambie dinámicamente según el estado del menú, lo que mejora la experiencia del usuario al interactuar con la barra de navegación.
-
-Si el usuario logeado fuese Super Admin se diferenciaría porque se desploquearía la vista "Get all users" y "Get all appointments". Se vería de la siguiente manera : 
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/img/panel-super-admin.png" width="70%"/>
-    </a>
-</div>
-
-
-### Componentes
-
-- **`CardAppointment`:** Representa una tarjeta que muestra información sobre una cita, con opciones para editar y eliminar
-
-<div align="center">
-  <a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-card-appointment-1.png" width="50%"/>
-  </a>
-</div>
-</br>
-</br>
-
-- **`CardArtist`:** Tarjeta que presenta información sobre un artista, como su nombre y su email
-
-<div align="center">
-  <a href="https://geekshubs.com/">
-          <img src="src/assets/readme/giphy.gif" width="50%"/>
-  </a>
-</div>
-</br>
-</br>
-
-
-- **`CardService`:** Tarjeta que muestra detalles sobre un servicio de tatuaje o piercing
-
-- **`CardUser`:** Tarjeta que muestra información sobre un usuario, utilizado en la sección para el Super Admin para poder visualizar todos los usuarios de la aplicación
-
-- **`CustomInput`:** Componente de entrada personalizado que puede tener variaciones en su diseño y funcionalidad según el contexto de uso
-
-- **`DropDown`:** Componente desplegable que proporciona opciones para que el usuario seleccione entre varias opciones
-
-- **`EditButton`:** Botón utilizado para activar la edición de las citas
-
-- **`LinkButton`:** Botón utilizado para navegar a otras vistas de la aplicación
-
-- **`PaginationButton`:** Botón utilizado para navegar entre páginas
-
-- **`RemoveButton`:** Botón utilizado para eliminar citas
-
-- **`ShiftToggle`:** Botón necesario para entrar al detalle de las citas
-
-
 ## Vistas
 
-- **`Appointments`:** Vista principal que muestra las citas del usuario logeado
+A continuación se muestran algunas imágenes de las vistas del proyecto:
 
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-card-appointment-1.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
+###- Vista de Home:
+![Alt text](image.png)
+En ella se puede observar el header por defecto, donde se nos permite registrarnos como nuevos usuarios, loguearnos en caso de ya estar registrados y el acceso exclusivo para profesionales.
+En el centro de la imagen, aparece el logo del estudio con un pequeño mensaje de acceso a las vistas de los trabajos. En el caso de seleccionar esta zona, accederemos a la galeria de tatuajes.
 
+###- Vista de Galeria de tatuajes:
+![Alt text](image-5.png)
+Muestra los diferentes trabajos de los tatuadores, con una pequeña descripción y el nombre del artista que realizó el trabajo.
 
-- **`Body`:** Vista fantasma que contiene el contenido principal de la aplicación
+###- Vista de Registro de Usuarios:
+![Alt text](image-1.png)
+Se recogen los datos de un nuevo usuario, haciendo una validación de cada uno de los datos introducidos, y no permitiendo el registro en el caso de que no estén todos los campos correctamente completados.
 
-- **`CreateAppointment`:** Vista que permite a los usuarios crear nuevas citas
-
-- **`Gallery`:** Vista que muestra una galería de imágenes de tatuajes y piercings
-
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-galeria.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
+###- Vista de Login de usuario:
+![Alt text](image-2.png)
+En el caso de ya estar registrado, puede realizar el login. 
+Se solicita el email y contraseña, realizando las validaciones correspondientes a la sintaxis de un correcto email y a los mínimos de un correcto password. 
+En el caso de resultar un usuario con rol "user", se le dará paso a una vista con un header distinto al que se le proporciona a la persona logueada con role "super-admin".
 
 
-- **`GetAllAppointments`:** Vista que permite a un superadmin obtener una lista de todas las citas existentes en el sistema
+###- Vista del menu de login usuario. 
+![Alt text](image-4.png)
+Se genera de forma particular para cada usuario logueado. Se añade el nombre de la persona logueada en el Header de la página, pudiendo acceder a sus datos pulsando su nombre.
 
-- **`GetAllUsers`:** Vista que proporciona a un superadmin una lista de todos los usuarios registrados
+###- Vista Crear citas:
+![Alt text](image-7.png)
+El usuario puede crear citas con el tatuador seleccionado mediante un desplegable realizado con un select, seleccionando la fecha, turno de mañana o tarde, tipo de trabajo y una breve descripción.
+En esta imagen, se pueden apreciar los diferentes mensajes de error que aparecen si los campos no son introducidos correctamente.
 
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-getallusers.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
-
-
-- **`GetArtists`:** Vista que muestra el listado de artistas disponibles
-
-- **`Home`:** Vista principal que sirve como la página de inicio de la aplicación
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-home.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
-
-- **`Login`:** Vista que permite a los usuarios autenticarse en la aplicación
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-login.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
-
-- **`Profile`:** Vista que muestra información detallada sobre el perfil del usuario
-
-- **`Register`:** Vista que permite a los nuevos usuarios registrarse en la aplicación
-
-<div align="center">
-<a href="https://geekshubs.com/">
-        <img src="src/assets/readme/img-register.png" width="50%"/>
-    </a>
-</div>
-</br>
-</br>
+###- Vista de Crear citas (sin errores por validación):
+![Alt text](image-8.png)
 
 
-- **`UpdateAppointment`:** Vista que permite a los usuarios editar detalles de citas existentes
+###- Vista de Citas del usuario logueado:
+![Alt text](image-9.png)
+Se realiza un listado de las citas que pertenecen al usuario logueado. Se pueden seleccionar una cita para su posterior modificación.
 
-- **`UpdateProfile`:** Vista que permite a los usuarios actualizar la información de su perfil
+###- Vista de mostrar cita:
+![Alt text](image-10.png)
+Se han incluido el profile, el update y el delete de la cita en esta vista.
+Se muestra la cita al ser seleccionada en la pantalla anterior. Pulsando el boton verde EDIT, podemos acceder a la modificación de los campos y finalizar el proceso pulsando UPDATE DATA, que aparece al cambiar el estado de los datos.
+Podemos realizar la eliminación de la cita pulsando el boton rojo DELETE DATA.
+Se han utilizado campos para controlar el estado de los componentes, he utilizado REDUX para la lectura y escritura de la información en las diferentes vistas.
 
-## Mejoras
-En futuras actualizaciones, se realizarán mejoras significativas en el diseño de la aplicación con el objetivo de mejorar la **estética general**. Se pondrá especial atención en la implementación de un diseño **responsivo** e implementaré la **búsqueda dinámica** que permitirá a los usuarios realizar búsquedas de manera más eficiente y rápida.
+###- Vista de login Only Profesional:
+![Alt text](image-11.png)
+Esta vista está reservada para los tatuadores, que deberán registrarse para ver el listado de citas que tienen reservadas.
+
+###- Vista de las citas del tatuador logueado:
+![Alt text](image-12.png)
+Aqui aparacen las citas que tiene reservadas el tatuador logueado anteriormente.
+
+###- Vista del menu super-admin:
+![Alt text](image-3.png)
+Este menú resulta del login en la pantalla principal Home, al loguearse con role super-admin.
+Esta vista nos permite el acceso estas opciones como Super-admin:
+  - Listado completo de usuarios.
+  - Listado de toas las citas.
+  - Registro de nuevos tatuadores.
+
+###- Vista del listado de usuarios por super-admin:
+![Alt text](image-13.png)
+Realiza el listado de todos los usuarios de la aplicación.
+El boton verde EXIT permite volver al menú de Super-admin.
+
+###- Vista de las citas por super-admin:
+![Alt text](image-14.png)
+Realiza el listado de todas las citas con todos los tatuadores.
+El boton verde EXIT permite volver al menú de Super-admin.
+
+###- Vista de registro de tatuadores por super-admin:
+![Alt text](image-15.png)
+Como super-admin podemos registrar nuevos tatuadores, realizando las comprobaciones y validaciones de los datos.
+El boton verde EXIT permite volver al menú de Super-admin.
+
+
+## Futuras Mejoras
+
+Este proyecto puede ser mejorado en las siguientes áreas:
+
+- Mejorar la estetica de las vistas, incorporando tecnologias que hagan más atractiva la aplicación. Además de hacerla más responsiba y pueda utilizarse en aplicaciones móviles.
+- Implementar un sistema de pagos para realizar reservas.
+- Agregar funcionalidades de calendario para facilitar la gestión de citas, y que informe sobre las disponibilidades de cada tatuador. 
+- Agregar funcionalidades a los tatuajes.
+- Mostrar los trabajos de los tatuadores para poder seleccionarlos y crear una cita sobre ese tema del tatuaje seleccionado.
+- Crear una paginación con índices, que facilite las vistas en caso de mostrarse muchos elementos.
+- Tambien me gustaria implementar algunos endpoints del backend, que me parecen interesantes, y por falta de tiempo no he podido realizar.
+
+
+¡Siéntete libre de contribuir y agregar mejoras en este proyecto!
+
 
 # Instrucciones de Instalación Local
 
@@ -318,7 +150,7 @@ En futuras actualizaciones, se realizarán mejoras significativas en el diseño 
 1. Clona este repositorio en tu máquina local usando el siguiente comando:
 
 ```jsx
- git clone https://github.com/ladronbx/tattoo-studio-frontend-react.git
+ git clone https://github.com/Noeliamll76/Proyecto-5-Frontend-Tattoo-Studio
 
 ```
 
@@ -341,7 +173,7 @@ En futuras actualizaciones, se realizarán mejoras significativas en el diseño 
 
 ## Backend
 
-Este proyecto depende del backend para su funcionalidad completa. Asegúrate de tener el backend instalado y en ejecución antes de iniciar la aplicación frontend. Puedes encontrar el código fuente del backend en el siguiente repositorio: [Backend Repository](https://github.com/ladronbx/tattoo-studio-backend-express-typeorm.git).
+Este proyecto depende del backend para su funcionalidad completa. Asegúrate de tener el backend instalado y en ejecución antes de iniciar la aplicación frontend. Puedes encontrar el código fuente del backend en el siguiente repositorio: [Backend Repository](https://github.com/Noeliamll76/Proyecto-4-Tatoo-Studio).
 
 Sigue las instrucciones en el repositorio del backend para clonar y ejecutar el servidor.
 
@@ -350,12 +182,12 @@ Sigue las instrucciones en el repositorio del backend para clonar y ejecutar el 
 1. Una vez instaladas las dependencias y con el backend en ejecución, inicia la aplicación con el siguiente comando:
     
     ```bash
-    npm start
+    npm run dev
     ```
     
 2. Abre tu navegador y visita http://localhost:3000/ para ver la aplicación en acción.
 
-## Contributions
+## Contribuciones
 
 Este proyecto es público, y las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
 
@@ -364,12 +196,4 @@ Este proyecto es público, y las contribuciones son bienvenidas. Si deseas contr
 3. Realiza tus cambios y mejoras.
 4. Envía una *pull request* para revisión y fusión.
 
----
-
-# 📧 Contacto
-
-Si tienes preguntas, comentarios o sugerencias, no dudes en ponerte en contacto conmigo en [ladronbravovlc@gmail.com](mailto:ladronbravovlc@gmail.com).
-
-- ***Bienve Ladrón***
-<a [href="mailto:ladronbravovlc@gmail.com](mailto:href=%22mailto:ladronbravovlc@gmail.com)"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-<a href="https://github.com/ladronbx" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=green" target="_blank"></a>
+Gracias
