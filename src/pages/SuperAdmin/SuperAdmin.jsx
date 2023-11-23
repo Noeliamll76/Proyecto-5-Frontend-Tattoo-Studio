@@ -13,9 +13,9 @@ export const SuperAdmin = () => {
     const role = tokenDecodificated.role
 
     const callUsersListClick = () => { navigate("/userList"); }
-    const callUsersAppointmentsClick = () => { navigate("/userAppointments"); }
+    const callAllAppointmentsClick = () => { navigate("/allAppointments"); }
     const callCreateArtistClick = () => { navigate("/createArtist"); }
-    
+    console.log (role)
     return (
         <>
             <div className="superDesign">
@@ -26,8 +26,8 @@ export const SuperAdmin = () => {
                                 Show users list
                             </div>
 
-                            <div className={`superSubmit `} onClick={callUsersAppointmentsClick}>
-                                Show users appointments
+                            <div className={`superSubmit `} onClick={callAllAppointmentsClick}>
+                                Show all appointments
                             </div>
 
                             <div className={`superSubmit `} onClick={callCreateArtistClick}>

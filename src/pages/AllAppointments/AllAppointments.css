@@ -23,3 +23,28 @@
     flex-wrap: wrap; 
     justify-content: center;
 }
+
+.ExitSubmit {
+    height: 2em;
+    width: 5em;
+    margin: 1em;
+
+    border-radius: 20%;
+    border: 0.5 solid darkcyan;
+    background-color: greenyellow;
+
+    margin-bottom: 3em;
+    color: green;
+    font-weight: bolder;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ExitSubmit:hover {
+
+    transition: 0.4s;
+    color: whitesmoke;
+    cursor: pointer;
+}

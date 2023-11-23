@@ -51,3 +51,7 @@ export const registerArtist = async (body, token) => {
 export const GetAllUsers = async (token) => {
    return await axios.get(`${hostURL}/user/getAllUsers`, { headers: { Authorization: `Bearer ${token}` } });
 }
+
+export const getAllAppointments = async (token) => {
+   return await axios.get(`${hostURL}/appointment/getAllAppointments`, { headers: { Authorization: `Bearer ${token}` } });
+}

@@ -12,8 +12,8 @@ import { LogProfesional } from '../LogProfesional/LogProfesional';
 import { ArtistAppointments } from '../ArtistAppointments/ArtistAppointments';
 import { SuperAdmin } from '../SuperAdmin/SuperAdmin';
 import { UserList } from '../UserList/UserList';
-import { UserAppointments } from '../UserAppointments/UserAppointments';
 import { CreateArtist } from '../CreateArtist/CreateArtist';
+import { AllAppointments } from '../AllAppointments/AllAppointments';
 
 export const Body = () => {
     return (
@@ -32,8 +32,9 @@ export const Body = () => {
             <Route path="/artistAppointments" element={<ArtistAppointments />}/>
             <Route path="/superAdmin" element={<SuperAdmin />}/>
             <Route path="/userList" element={<UserList />}/> 
-            <Route path="/userAppointments" element={<UserAppointments />}/> 
             <Route path="/createArtist" element={<CreateArtist />}/> 
+            <Route path='/allAppointments' element={<AllAppointments />}/>
+            
                       
 
             </Routes>
