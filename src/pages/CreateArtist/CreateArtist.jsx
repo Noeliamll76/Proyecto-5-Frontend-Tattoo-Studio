@@ -74,7 +74,8 @@ export const CreateArtist = () => {
       )
       .catch(error => console.log(error));
   }
-
+  const callExitClick = () => { navigate("/superAdmin"); }
+  
   return (
     <div className="registerDesign">
       <div><img className="logoDesign" src={"./img/logo.png"} /></div>
@@ -129,6 +130,9 @@ export const CreateArtist = () => {
       <div className='errorMsg'>{msgError}</div>
 
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
+      <div className={`ExitSubmit `} onClick={callExitClick}>
+                EXIT
+            </div>
     </div>
   )
 }

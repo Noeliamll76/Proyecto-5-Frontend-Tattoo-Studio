@@ -44,7 +44,7 @@
 
     display: flex;
     justify-content: center;
-    align-items: unset;
+    align-items: center;
 }
 
 .buttonSubmit:hover {
