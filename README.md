@@ -1,6 +1,6 @@
 
 
-<h1> ## FRONTEND TATTOO & PIERCING STUDIO 🖋️ ##</h1>
+<h1>  FRONTEND TATTOO & PIERCING STUDIO  </h1>
 
 **Proyecto nº 5 FRONTEND Estudio de Tatuaje del Bootcampt Full Stack Developer en GeeksHubs Academy**
 
@@ -9,13 +9,15 @@
 # Table of Contents
 
 - ### 🚀 [Descripcion](#descripcion)
-- ### 🎯 [Objetivo de la aplicación](#objetivo de la aplicación)
+- ### 🎯 [Objetivo aplicacion](#objetivo)
 - ### 👩🏽‍💻 [Tecnologias](#tecnologias)
 - ### 👀 [Vistas](#vistas)
 - ### 🔝 [Mejoras](#mejoras)
-- ### ⚙️ [Local Installation Instructions](#local-installation-instructions)
-- ### 📧 [Contact](#contact)
-- ### 🌐 [GitHub Pages Link](#github-pages-link)
+- ### ⚙️ [Instrucciones aplicación](#instrucciones)
+
+
+
+
 
 
 ## Descripción del Proyecto
@@ -52,59 +54,59 @@ El frontend ha sido desarrollado utilizando tecnologías como React, Redux,  Jav
 A continuación se muestran algunas imágenes de las vistas del proyecto:
 
 ###- Vista de Home:
-![Alt text](image.png)
+![Alt text](./public/img/image.png)
 En ella se puede observar el header por defecto, donde se nos permite registrarnos como nuevos usuarios, loguearnos en caso de ya estar registrados y el acceso exclusivo para profesionales.
 En el centro de la imagen, aparece el logo del estudio con un pequeño mensaje de acceso a las vistas de los trabajos. En el caso de seleccionar esta zona, accederemos a la galeria de tatuajes.
 
 ###- Vista de Galeria de tatuajes:
-![Alt text](image-5.png)
+![Alt text](./public/img/image-5.png)
 Muestra los diferentes trabajos de los tatuadores, con una pequeña descripción y el nombre del artista que realizó el trabajo.
 
 ###- Vista de Registro de Usuarios:
-![Alt text](image-1.png)
+![Alt text](./public/img/image-1.png)
 Se recogen los datos de un nuevo usuario, haciendo una validación de cada uno de los datos introducidos, y no permitiendo el registro en el caso de que no estén todos los campos correctamente completados.
 
 ###- Vista de Login de usuario:
-![Alt text](image-2.png)
+![Alt text](./public/img/image-2.png)
 En el caso de ya estar registrado, puede realizar el login. 
 Se solicita el email y contraseña, realizando las validaciones correspondientes a la sintaxis de un correcto email y a los mínimos de un correcto password. 
 En el caso de resultar un usuario con rol "user", se le dará paso a una vista con un header distinto al que se le proporciona a la persona logueada con role "super-admin".
 
 
 ###- Vista del menu de login usuario. 
-![Alt text](image-4.png)
+![Alt text](./public/img/image-4.png)
 Se genera de forma particular para cada usuario logueado. Se añade el nombre de la persona logueada en el Header de la página, pudiendo acceder a sus datos pulsando su nombre.
 
 ###- Vista Crear citas:
-![Alt text](image-7.png)
+![Alt text](./public/img/image-7.png)
 El usuario puede crear citas con el tatuador seleccionado mediante un desplegable realizado con un select, seleccionando la fecha, turno de mañana o tarde, tipo de trabajo y una breve descripción.
 En esta imagen, se pueden apreciar los diferentes mensajes de error que aparecen si los campos no son introducidos correctamente.
 
 ###- Vista de Crear citas (sin errores por validación):
-![Alt text](image-8.png)
+![Alt text](./public/img/image-8.png)
 
 
 ###- Vista de Citas del usuario logueado:
-![Alt text](image-9.png)
+![Alt text](./public/img/image-9.png)
 Se realiza un listado de las citas que pertenecen al usuario logueado. Se pueden seleccionar una cita para su posterior modificación.
 
 ###- Vista de mostrar cita:
-![Alt text](image-10.png)
+![Alt text](./public/img/image-10.png)
 Se han incluido el profile, el update y el delete de la cita en esta vista.
 Se muestra la cita al ser seleccionada en la pantalla anterior. Pulsando el boton verde EDIT, podemos acceder a la modificación de los campos y finalizar el proceso pulsando UPDATE DATA, que aparece al cambiar el estado de los datos.
 Podemos realizar la eliminación de la cita pulsando el boton rojo DELETE DATA.
 Se han utilizado campos para controlar el estado de los componentes, he utilizado REDUX para la lectura y escritura de la información en las diferentes vistas.
 
 ###- Vista de login Only Profesional:
-![Alt text](image-11.png)
+![Alt text](./public/img/image-11.png)
 Esta vista está reservada para los tatuadores, que deberán registrarse para ver el listado de citas que tienen reservadas.
 
 ###- Vista de las citas del tatuador logueado:
-![Alt text](image-12.png)
+![Alt text](./public/img/image-12.png)
 Aqui aparacen las citas que tiene reservadas el tatuador logueado anteriormente.
 
 ###- Vista del menu super-admin:
-![Alt text](image-3.png)
+![Alt text](./public/img/image-3.png)
 Este menú resulta del login en la pantalla principal Home, al loguearse con role super-admin.
 Esta vista nos permite el acceso estas opciones como Super-admin:
   - Listado completo de usuarios.
@@ -112,17 +114,17 @@ Esta vista nos permite el acceso estas opciones como Super-admin:
   - Registro de nuevos tatuadores.
 
 ###- Vista del listado de usuarios por super-admin:
-![Alt text](image-13.png)
+![Alt text](./public/img/image-13.png)
 Realiza el listado de todos los usuarios de la aplicación.
 El boton verde EXIT permite volver al menú de Super-admin.
 
 ###- Vista de las citas por super-admin:
-![Alt text](image-14.png)
+![Alt text](./public/img/image-14.png)
 Realiza el listado de todas las citas con todos los tatuadores.
 El boton verde EXIT permite volver al menú de Super-admin.
 
 ###- Vista de registro de tatuadores por super-admin:
-![Alt text](image-15.png)
+![Alt text](./public/img/image-15.png)
 Como super-admin podemos registrar nuevos tatuadores, realizando las comprobaciones y validaciones de los datos.
 El boton verde EXIT permite volver al menú de Super-admin.
 
@@ -138,9 +140,6 @@ Este proyecto puede ser mejorado en las siguientes áreas:
 - Mostrar los trabajos de los tatuadores para poder seleccionarlos y crear una cita sobre ese tema del tatuaje seleccionado.
 - Crear una paginación con índices, que facilite las vistas en caso de mostrarse muchos elementos.
 - Tambien me gustaria implementar algunos endpoints del backend, que me parecen interesantes, y por falta de tiempo no he podido realizar.
-
-
-¡Siéntete libre de contribuir y agregar mejoras en este proyecto!
 
 
 # Instrucciones de Instalación Local
@@ -189,7 +188,7 @@ Sigue las instrucciones en el repositorio del backend para clonar y ejecutar el 
 
 ## Contribuciones
 
-Este proyecto es público, y las contribuciones son bienvenidas. Si deseas contribuir, sigue estos pasos:
+Este proyecto es público, y se aceptan las contribuciones para su mejora. Si deseas contribuir, sigue estos pasos:
 
 1. Haz un *fork* del repositorio.
 2. Crea una nueva rama para tu contribución.
