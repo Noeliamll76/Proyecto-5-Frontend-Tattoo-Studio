@@ -1,0 +1,53 @@
+.usersDesign {
+
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(../../../public/img/villar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+.usersRoster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5em, 1fr));
+    margin: 1em;
+    gap: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ExitSubmit {
+
+    height: 2em;
+    width: 5em;
+    margin: 1em;
+
+    border-radius: 20%;
+    border: 0.5 solid darkcyan;
+    background-color: greenyellow;
+
+
+    margin-bottom: 3em;
+    color: green;
+    font-weight: bolder;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ExitSubmit:hover {
+
+    transition: 0.4s;
+    color: whitesmoke;
+    cursor: pointer;
+}

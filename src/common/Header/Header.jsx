@@ -33,7 +33,7 @@ export const Header = () => {
                     <LinkButton path={"/profile"} title={rdxCredentialsUser.credentials.data.name} />
                     <LinkButton path={"/appointmentsCreate"} title={"New appointment"} />
                     <LinkButton path={"/appointmentsProfile"} title={"Yours appointments"} />
-
+                    
                     <div onClick={logOutMe}>
                         <LinkButton path={"/"} title={"Log out"} />
                     </div>

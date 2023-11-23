@@ -15,7 +15,6 @@ import { UserList } from '../UserList/UserList';
 import { UserAppointments } from '../UserAppointments/UserAppointments';
 import { CreateArtist } from '../CreateArtist/CreateArtist';
 
-
 export const Body = () => {
     return (
         <>
@@ -35,7 +34,7 @@ export const Body = () => {
             <Route path="/userList" element={<UserList />}/> 
             <Route path="/userAppointments" element={<UserAppointments />}/> 
             <Route path="/createArtist" element={<CreateArtist />}/> 
-            
+                      
 
             </Routes>
          </>

@@ -48,3 +48,6 @@ export const registerArtist = async (body, token) => {
    return await axios.post(`${hostURL}/tattoo_artist/register`, body,
    { headers: { Authorization: `Bearer ${token}`, }, })
 }
+export const GetAllUsers = async (token) => {
+   return await axios.get(`${hostURL}/user/getAllUsers`, { headers: { Authorization: `Bearer ${token}` } });
+}

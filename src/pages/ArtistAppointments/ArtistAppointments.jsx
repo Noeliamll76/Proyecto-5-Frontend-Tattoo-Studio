@@ -14,26 +14,21 @@ export const ArtistAppointments = () => {
 
     const rdxArtist = useSelector(artistData);
     const token = rdxArtist.credentials.token;
-console.log (rdxArtist.credentials.data.name)
+    console.log(rdxArtist.credentials.data.name)
     const navigate = useNavigate();
 
     const [artistApp, setArtistApp] = useState([]);
 
     useEffect(() => {
         if (artistApp.length === 0) {
-            console.log(token)
-            console.log(artistApp)
             setTimeout(() => {
                 loginArtistAppointments(token)
                     .then(
                         citas => {
                             setArtistApp(citas.data.data)
-                            console.log(artistApp)
-                            console.log(citas)
                         }
                     )
                     .catch(error => {
-                        console.log("dentro del cath: " + error)
                         navigate("/LogProfesional")
                     }
                     )
@@ -66,10 +61,10 @@ console.log (rdxArtist.credentials.data.name)
                     }
                 </div>
             )
-            : 
-            (
-                <div><LoadingSpinner /></div>
-            )
+                :
+                (
+                    <div><LoadingSpinner /></div>
+                )
             }
         </div>
     )

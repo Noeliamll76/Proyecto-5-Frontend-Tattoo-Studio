@@ -1,5 +1,5 @@
 import './SuperAdmin.css'
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
@@ -23,11 +23,11 @@ export const SuperAdmin = () => {
                     ? (
                         <>
                             <div className={`superSubmit `} onClick={callUsersListClick}>
-                                Show user list
+                                Show users list
                             </div>
 
                             <div className={`superSubmit `} onClick={callUsersAppointmentsClick}>
-                                Show user appointments
+                                Show users appointments
                             </div>
 
                             <div className={`superSubmit `} onClick={callCreateArtistClick}>
