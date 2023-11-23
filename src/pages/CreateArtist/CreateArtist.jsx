@@ -5,12 +5,17 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { registerArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from "react-redux";  
-import { login } from "../artistSlice";
+import { useSelector} from "react-redux";  
+import { userData } from "../../pages/userSlice";
 
 export const CreateArtist = () => {
 
   const navigate = useNavigate();
+  const rdxUser = useSelector(userData);
+  const token = (rdxUser.credentials.token);
+  console.log (rdxUser.credentials.token);
+  console.log (token);
+  
   const [msgError, setMsgError] = useState('');
 
   const [artist, setArtist] = useState({
@@ -38,7 +43,7 @@ export const CreateArtist = () => {
   const errorCheck = (e) => {
     let error = ""
     error = validator(e.target.name, e.target.value);
-    setUserError((prevState) => ({
+    setArtistError((prevState) => ({
       ...prevState,
       [e.target.name + 'Error']: error,
     }));

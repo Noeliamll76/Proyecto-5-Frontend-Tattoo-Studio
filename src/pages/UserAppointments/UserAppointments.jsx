@@ -7,8 +7,7 @@ export const UserAppointments = () => {
 
     const navigate = useNavigate();
     const [change, setChange] = useState(true);
-    // const [flags, setFlags] = useState(true)
-
+   
     const callCardsClick = () => {
         setChange(!change)
         navigate("/cards");
