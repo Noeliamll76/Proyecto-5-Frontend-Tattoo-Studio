@@ -1,25 +1,23 @@
-
 @keyframes spinner {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
-  .loading-spinner {
-    background-image: url(../../../public/img/logoSpiner.png);
-    width: 195px;
-    height: 245px;
-    /* border: 5px solid black; 
-    border-top: 5px solid gold; 
-    border-radius: 50%; */
-    animation: spinner 1s linear infinite;
+
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .spinner-container {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 280px;
-  }
+}
+
+.loading-spinner {
+  background-image: url(../../../public/img/logoSpiner.png);
+  width: 195px;
+  height: 245px;
+  animation: spinner 1s linear infinite;
+}
+
+.spinner-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+}

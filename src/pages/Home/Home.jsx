@@ -6,7 +6,6 @@ export const Home = () => {
 
     const navigate = useNavigate();
     const [change, setChange] = useState(true);
-    // const [flags, setFlags] = useState(true)
 
     const callCardsClick = () => {
         setChange(!change)
@@ -19,7 +18,6 @@ export const Home = () => {
                 <div className={`cardSubmit ${!change}`} onClick={callCardsClick}>
                     View gallery
                 </div>
-
             </div>
         </>
     )

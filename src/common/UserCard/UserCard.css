@@ -1,6 +1,4 @@
-
 .userCardDesign {
-
     height: 5em;
     width: 30vw;
 
@@ -9,7 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: row; */
     flex-direction: column;
 
     background-color: darkgoldenrod;
@@ -26,4 +23,3 @@
     transform: scale(1.2);
     transition: 1s;
 }
-

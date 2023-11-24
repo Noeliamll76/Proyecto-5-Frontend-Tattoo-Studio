@@ -5,7 +5,6 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { logTattooArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 import { validator } from "../../services/useful";
-
 import { useDispatch } from "react-redux";  
 import { login } from "../artistSlice";
 
@@ -35,7 +34,6 @@ export const LogProfesional = () => {
     const errorCheck = (e) => {
         let error = "";
         error = validator(e.target.name, e.target.value);
-
         setCredencialesError((prevState) => ({
             ...prevState,
             [e.target.name + 'Error']: error,
@@ -65,8 +63,7 @@ export const LogProfesional = () => {
             }, 500);
         })
         .catch(error => {
-            console.log (error.message)
-            setMsgError(error.message)
+             setMsgError(error.message)
         });
     }
     

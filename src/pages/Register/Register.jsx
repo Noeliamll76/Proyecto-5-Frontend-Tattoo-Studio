@@ -6,7 +6,6 @@ import { validator } from "../../services/useful";
 import { registerUser } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
 
-
 export const Register = () => {
 
   const navigate = useNavigate();
@@ -41,7 +40,6 @@ export const Register = () => {
       ...prevState,
       [e.target.name + 'Error']: error,
     }));
-
   }
 
   const Submit = () => {
@@ -56,16 +54,15 @@ export const Register = () => {
       }
     }
     registerUser(user)
-      .then( resultado => {
-          if (resultado.data.message === "Incorrect data"){
-            setMsgError("Incorrect data or existing user")
-            return;
-          }
-          setTimeout(() => {
-            navigate("/login");
-          }, 500)
+      .then(resultado => {
+        if (resultado.data.message === "Incorrect data") {
+          setMsgError("Incorrect data or existing user")
+          return;
         }
-        
+        setTimeout(() => {
+          navigate("/login");
+        }, 500)
+      }
       )
       .catch(error => console.log(error));
   }

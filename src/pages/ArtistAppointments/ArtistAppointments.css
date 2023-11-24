@@ -1,14 +1,12 @@
-
 .citasDesign {
-
-    height:88vh;
+    height: 88vh;
     width: 100vw;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
-    align-items: center; 
-   
+    justify-content: flex-start;
+    align-items: center;
+
     background-image: url(../../../public/img/villar.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,11 +14,11 @@
 }
 
 .artistAppRoster {
-    display: grid;  
-    grid-template-columns:repeat(auto-fill, minmax(5em, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5em, 1fr));
     margin: 1em;
     gap: 1em;
-    display: flex;  
-    flex-wrap: wrap; 
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }

@@ -21,11 +21,10 @@ export const AllAppointments = () => {
     useEffect(() => {
         if (appointments.length === 0) {
             setTimeout(() => {
-                getAllAppointments (token)
+                getAllAppointments(token)
                     .then(
                         appointments => {
                             setAppointments(appointments.data.data)
-                            console.log(appointments.data)
                         }
                     )
                     .catch(error => {
@@ -47,16 +46,16 @@ export const AllAppointments = () => {
                             {appointments.map(appointment => {
                                 return (
                                     <AppointmentCard
-                                    key={appointment.id}
-                                    artist_id={appointment.artist_id}
-                                    type_work={appointment.type_work}
-                                    description={appointment.description}
-                                    date={appointment.date}
-                                    shift={appointment.shift}
-                                    tattoo_artist={appointment.Tattoo_artist}
-                            />)
+                                        key={appointment.id}
+                                        artist_id={appointment.artist_id}
+                                        type_work={appointment.type_work}
+                                        description={appointment.description}
+                                        date={appointment.date}
+                                        shift={appointment.shift}
+                                        tattoo_artist={appointment.Tattoo_artist}
+                                    />)
                             })
-                        }
+                            }
                         </div>
                     )
                         : (

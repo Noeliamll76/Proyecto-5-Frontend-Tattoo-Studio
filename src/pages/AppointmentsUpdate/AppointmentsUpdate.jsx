@@ -5,7 +5,6 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
 import { updateAppointmentById, GetArtist, deleteAppointmentById } from "../../services/apiCalls";
-
 import { useSelector } from "react-redux";
 import { appointmentData } from "../../pages/appointmentSlice";
 import { userData } from "../../pages/userSlice";
@@ -17,10 +16,7 @@ export const AppointmentsUpdate = () => {
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToUpdate = tokenDecodificated.id
-
     const rdxAppointment = useSelector(appointmentData)
-    console.log(rdxAppointment)
-
     const navigate = useNavigate();
     const [isEnabled, setIsEnabled] = useState(true);
     const [msgError, setMsgError] = useState();
@@ -68,7 +64,6 @@ export const AppointmentsUpdate = () => {
         }
     }, [artists]);
 
-
     const errorCheck = (e) => {
         let error = "";
         error = validator(e.target.name, e.target.value);
@@ -88,8 +83,6 @@ export const AppointmentsUpdate = () => {
     const idToDelete = (rdxAppointment.credentialAppointment.id)
     const deleteData = async () => {
         try {
-            console.log(idToDelete)
-            console.log(token)
             const borrado = await deleteAppointmentById({ id: idToDelete }, token)
             setMsgError(borrado.data.message)
             console.log(borrado)
@@ -121,11 +114,8 @@ export const AppointmentsUpdate = () => {
                 type_work: Appointment.type_work,
                 description: Appointment.description,
             };
-            console.log(token)
-            console.log(body)
             const response = await updateAppointmentById(body, token);
             setMsgError(response.data.message)
-            console.log(response)
             setTimeout(() => {
                 setIsEnabled(true)
                 navigate("/AppointmentsProfile");
@@ -219,20 +209,14 @@ export const AppointmentsUpdate = () => {
                         functionBlur={errorCheck}
                     />
                     <div className='errorMsg'>{AppointmentError.descriptionError}</div>
-
                     <div className='errorMsg'>{msgError}</div>
-
                 </div>
-
                 {
                     isEnabled
                         ? (<div className="button1Submit" onClick={() => setIsEnabled(!isEnabled)}>EDIT</div>)
-
                         : (<div className="button1Submit" onClick={() => sendData()}>UPDATE DATA</div>)
-
                 }
                 <div className="buttonDelete" onClick={() => deleteData()}>DELETE DATA</div>
-
             </div>
         </div>
     );

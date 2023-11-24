@@ -13,7 +13,6 @@ import { jwtDecode } from 'jwt-decode';
 export const AppointmentsProfile = () => {
 
     const rdxUser = useSelector(userData);
-    // const rdxAppointment = useSelector(appointmentData)
     const token = rdxUser.credentials.token
     const tokenDecodificated = jwtDecode(token)
     const idToLogin = tokenDecodificated.id
@@ -33,7 +32,7 @@ export const AppointmentsProfile = () => {
                     )
                     .catch(error => {
                         console.log("dentro del cath: " + error)
-                    } )
+                    })
             }, 1000)
         }
     }, [appointments]);
@@ -47,8 +46,7 @@ export const AppointmentsProfile = () => {
 
     return (
         <div className='citasDesign'>
-
-            <div  />
+            <div />
             {appointments.length > 0 ? (
                 <div className='appointmentsRoster'>
                     {appointments.map(appointment => {

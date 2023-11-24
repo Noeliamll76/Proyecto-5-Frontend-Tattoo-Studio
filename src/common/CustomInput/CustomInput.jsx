@@ -2,16 +2,15 @@
 import React from 'react'
 import './CustomInput.css'
 
-export const CustomInput = ({design, type, name, value, functionProp, functionBlur}) => {
+export const CustomInput = ({ design, type, name, value, functionProp, functionBlur }) => {
     return (
-        <input 
-           className={design}
-           type={type}
-           name={name}
-        //    placeholder={placeholder}
-           value={value}
-           onChange={(e)=>functionProp(e)}
-           onBlur={(e)=>functionBlur(e)}
+        <input
+            className={design}
+            type={type}
+            name={name}
+            value={value}
+            onChange={(e) => functionProp(e)}
+            onBlur={(e) => functionBlur(e)}
         />
 
     )

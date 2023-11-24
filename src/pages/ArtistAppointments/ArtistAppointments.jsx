@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect } from 'react';
 import './ArtistAppointments.css';
 import { loginArtistAppointments } from '../../services/apiCalls';
@@ -9,12 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { artistData } from "../../pages/artistSlice";
 
-
 export const ArtistAppointments = () => {
 
     const rdxArtist = useSelector(artistData);
     const token = rdxArtist.credentials.token;
-    console.log(rdxArtist.credentials.data.name)
     const navigate = useNavigate();
 
     const [artistApp, setArtistApp] = useState([]);
@@ -38,7 +35,6 @@ export const ArtistAppointments = () => {
 
     return (
         <div className='citasDesign'>
-
             <div artistApp />
             {artistApp.length > 0 ? (
                 <div className='artistAppRoster'>
@@ -54,7 +50,6 @@ export const ArtistAppointments = () => {
                                 description={appointment.description}
                                 date={appointment.date}
                                 shift={appointment.shift}
-
                             />
                         )
                     })

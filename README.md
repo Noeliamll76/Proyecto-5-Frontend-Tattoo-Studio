@@ -8,12 +8,12 @@
 
 # Table of Contents
 
-- ### 🚀 [Descripcion](#descripcion)
-- ### 🎯 [Objetivo aplicacion](#objetivo)
-- ### 👩🏽‍💻 [Tecnologias](#tecnologias)
+- ### 🚀 [Descripcion](#descripción-del-proyecto)
+- ### 🎯 [Objetivo aplicacion](#objetivo-de-la-aplicación)
+- ### 👩🏽‍💻 [Tecnologias](#tecnologías)
 - ### 👀 [Vistas](#vistas)
-- ### 🔝 [Mejoras](#mejoras)
-- ### ⚙️ [Instrucciones aplicación](#instrucciones)
+- ### 🔝 [Mejoras](#futuras-mejoras)
+- ### ⚙️ [Instrucciones aplicación](#instrucciones-de-instalación-local)
 
 
 

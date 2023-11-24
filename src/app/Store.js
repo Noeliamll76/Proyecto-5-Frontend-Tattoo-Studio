@@ -3,7 +3,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import userSlice from '../pages/userSlice';
 import appointmentSlice from '../pages/appointmentSlice';
 import artistSlice from '../pages/artistSlice';
-// import searchSlice from '../pages/searchSlice';
 
 import { combineReducers } from 'redux';
 
@@ -16,9 +15,7 @@ const reducers = combineReducers({
   user: userSlice,
   appointment: appointmentSlice,
   artist: artistSlice,
-    // search: searchSlice
 })
-
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +25,6 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export default configureStore({
-    reducer: persistedReducer,
-    middleware: [thunk]
+  reducer: persistedReducer,
+  middleware: [thunk]
 });

@@ -35,8 +35,6 @@ export const Body = () => {
             <Route path="/createArtist" element={<CreateArtist />}/> 
             <Route path='/allAppointments' element={<AllAppointments />}/>
             
-                      
-
             </Routes>
          </>
      )

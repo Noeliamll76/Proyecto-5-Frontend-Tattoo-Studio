@@ -15,7 +15,7 @@ export const SuperAdmin = () => {
     const callUsersListClick = () => { navigate("/userList"); }
     const callAllAppointmentsClick = () => { navigate("/allAppointments"); }
     const callCreateArtistClick = () => { navigate("/createArtist"); }
-    console.log (role)
+    
     return (
         <>
             <div className="superDesign">

@@ -10,7 +10,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 
-
 export const AppointmentsCreate = () => {
 
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ export const AppointmentsCreate = () => {
   const token = rdxUser.credentials.token
 
   const [appointment, setAppointment] = useState({
-
     artist_id: '',
     date: '',
     shift: '',
@@ -32,7 +30,6 @@ export const AppointmentsCreate = () => {
   });
 
   const [appointmentError, setAppointmentError] = useState({
-
     artist_idError: '',
     dateError: '',
     shiftError: '',
@@ -45,7 +42,6 @@ export const AppointmentsCreate = () => {
   }, [appointment]);
 
   useEffect(() => {
-    console.log(artists)
     if (artists.length === 0) {
       GetArtist()
         .then(
@@ -112,7 +108,6 @@ export const AppointmentsCreate = () => {
     <div className="appointmentDesign">
       <div className='errorMsg'>{msgError}</div>
       <div><img className="logoDesign" src={"./img/logo.png"} /></div>
-
       <div>Tattoo artist :
         {
           <select name="artist_id" onChange={functionHandler}>
@@ -173,10 +168,7 @@ export const AppointmentsCreate = () => {
         />
         <div className='errorMsg'>{appointmentError.descriptionError}</div>
       </div>
-
-
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
-
     </div>
   )
 }

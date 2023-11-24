@@ -5,7 +5,7 @@ import { CustomInput } from "../../common/CustomInput/CustomInput";
 import { validator } from "../../services/useful";
 import { registerArtist } from "../../services/apiCalls";
 import { useNavigate } from 'react-router-dom';
-import { useSelector} from "react-redux";  
+import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
 
 export const CreateArtist = () => {
@@ -13,9 +13,7 @@ export const CreateArtist = () => {
   const navigate = useNavigate();
   const rdxUser = useSelector(userData);
   const token = (rdxUser.credentials.token);
-  console.log (rdxUser.credentials.token);
-  console.log (token);
-  
+
   const [msgError, setMsgError] = useState('');
 
   const [artist, setArtist] = useState({
@@ -61,21 +59,20 @@ export const CreateArtist = () => {
       }
     }
     registerArtist(artist, token)
-      .then( resultado => {
-          if (resultado.data.message === "Incorrect data"){
-            setMsgError("Incorrect data or existing artist")
-            return;
-          }
-          setTimeout(() => {
-            navigate("/superAdmin");
-          }, 500)
+      .then(resultado => {
+        if (resultado.data.message === "Incorrect data") {
+          setMsgError("Incorrect data or existing artist")
+          return;
         }
-        
+        setTimeout(() => {
+          navigate("/superAdmin");
+        }, 500)
+      }
       )
       .catch(error => console.log(error));
   }
   const callExitClick = () => { navigate("/superAdmin"); }
-  
+
   return (
     <div className="registerDesign">
       <div><img className="logoDesign" src={"./img/logo.png"} /></div>
@@ -131,8 +128,8 @@ export const CreateArtist = () => {
 
       <div className='buttonSubmit' onClick={Submit}>Check in?</div>
       <div className={`ExitSubmit `} onClick={callExitClick}>
-                EXIT
-            </div>
+        EXIT
+      </div>
     </div>
   )
 }

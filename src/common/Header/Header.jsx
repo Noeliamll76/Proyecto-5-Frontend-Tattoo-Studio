@@ -2,11 +2,9 @@
 import React from 'react'
 import './Header.css'
 import { LinkButton } from '../LinkButton/LinkButton'
-
 import { useSelector, useDispatch } from "react-redux";
 import { logout, userData } from "../../pages/userSlice";
 import { useNavigate } from 'react-router-dom';
-
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -33,7 +31,7 @@ export const Header = () => {
                     <LinkButton path={"/profile"} title={rdxCredentialsUser.credentials.data.name} />
                     <LinkButton path={"/appointmentsCreate"} title={"New appointment"} />
                     <LinkButton path={"/appointmentsProfile"} title={"Yours appointments"} />
-                    
+
                     <div onClick={logOutMe}>
                         <LinkButton path={"/"} title={"Log out"} />
                     </div>

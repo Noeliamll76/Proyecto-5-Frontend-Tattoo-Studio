@@ -6,10 +6,8 @@ import { GetUser, updateUser } from "../../services/apiCalls";
 import { validator } from "../../services/useful";
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-
 import { useSelector } from "react-redux";
 import { userData } from "../../pages/userSlice";
-
 
 export const Profile = () => {
 
@@ -44,7 +42,6 @@ export const Profile = () => {
             if (Profile[test] === "") {
                 GetUser(token)
                     .then((results) => {
-                        console.log(results)
                         setProfile(results.data.data);
                     })
                     .catch((error) => console.log(error));
@@ -69,7 +66,6 @@ export const Profile = () => {
         }));
     }
 
-
     const sendData = async () => {
         try {
             for (let test in Profile) { if (Profile[test] === "") return; }
@@ -90,11 +86,9 @@ export const Profile = () => {
         catch (error) { console.log(error) }
     };
 
-
     return (
         <div className="profileDesign">
             <div><img className="logoDesign" src={"./img/logo.png"} /></div>
-
             <div>User id :
                 <CustomInput
                     disabled={isEnabled}

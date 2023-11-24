@@ -1,11 +1,9 @@
 
 .tattooCardDesign {
-
     height: 22em;
     width: 20em;
 
     border-radius: 1em;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +14,6 @@
     border: 0.2 solid black;
 
     transition: 1s;
-
     margin: 1em;
     
 }

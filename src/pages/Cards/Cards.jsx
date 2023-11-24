@@ -11,20 +11,20 @@ export const Cards = () => {
 
     useEffect(() => {
         if (tattoos.length === 0) {
-            setTimeout(()=>{
+            setTimeout(() => {
                 GetTattoo()
-                .then(
-                    tattoos => {
-                         setTattoos(tattoos.data.data)
-                         console.log (tattoos.data)
+                    .then(
+                        tattoos => {
+                            setTattoos(tattoos.data.data)
+                            console.log(tattoos.data)
+                        }
+                    )
+                    .catch(error => {
+                        console.log(error)
                     }
-                )
-                .catch(error => {
-                    console.log(error)
-                }
-                )
-            },1000)
-            }
+                    )
+            }, 1000)
+        }
     }, [tattoos]);
 
     const tellMe = (argumento) => {
@@ -33,12 +33,10 @@ export const Cards = () => {
 
     return (
         <div className='cardsDesign'>
-
             {tattoos.length > 0 ? (
                 <div className='tattoosRoster'>
-                    { tattoos.map(tattoo =>  {
-                         return (
-                            
+                    {tattoos.map(tattoo => {
+                        return (
                             <TattooCard
                                 key={tattoo.id}
                                 description={tattoo.description}
@@ -47,7 +45,7 @@ export const Cards = () => {
                                 selected={"selectedCard"}
                                 selectFunction={() => tellMe(tattoo)}
                             />)
-                        })
+                    })
                     }
                 </div>
             )

@@ -1,5 +1,4 @@
 .citasDesign {
-
     height:100vh;
     width: 100vw;
 
@@ -43,7 +42,6 @@
 }
 
 .ExitSubmit:hover {
-
     transition: 0.4s;
     color: whitesmoke;
     cursor: pointer;

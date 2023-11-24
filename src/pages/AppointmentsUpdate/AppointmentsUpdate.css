@@ -1,5 +1,4 @@
 .appointmentDesign {
-
     height: 88vh;
     width: 100vw;
 
@@ -38,7 +37,6 @@
 }
 
 .button1Submit {
-
     height: 2em;
     width: 8em;
     margin-top: 0.5em;
@@ -53,14 +51,12 @@
 }
 
 .button1Submit:hover {
-
     transition: 0.4s;
     background-color: greenyellow;
     cursor: pointer;
 }
 
 .buttonDelete {
-
     height: 2em;
     width: 8em;
     margin-top: 0.5em;
@@ -75,14 +71,12 @@
 }
 
 .buttonSubmit:hover {
-
     transition: 0.4s;
     background-color: lightcoral;
     cursor: pointer;
 }
 
 .selectDesign {
-
     height: 2em;
     width: 25em;
 

@@ -1,6 +1,5 @@
 
 .superDesign {
-
     height:100vh;
     width: 100vw;
     font-family: roboto;
@@ -18,13 +17,9 @@
 }
 
 .superSubmit {
-
      height: 3em;
     width: 8em; 
-    /* background-image: url(../../../public/img/logo.png);
-    background-repeat: no-repeat;
-    background-size: cover;  */
-    /* height: 300px; */
+   
     border-radius: 1em;
     border: 0.5 solid darkcyan;
     background-color: black;
@@ -33,11 +28,9 @@
     color: darkgoldenrod;
     /* font-weight: bolder; */
     font-size:large;
-
 }
 
 .superSubmit:hover {
-
     transition: 0.4s;
     color: whitesmoke;
     cursor: pointer;

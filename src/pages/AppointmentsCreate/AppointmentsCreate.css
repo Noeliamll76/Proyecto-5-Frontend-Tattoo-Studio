@@ -1,6 +1,5 @@
 
 .appointmentDesign {
-
     height: 88vh;
     width: 100vw;
     
@@ -25,7 +24,6 @@
 }
 
 .buttonSubmit {
-
     height: 3em;
     width: 8em;
 
@@ -40,7 +38,6 @@
 }
 
 .buttonSubmit:hover {
-
     transition: 0.4s;
     background-color: lightcoral;
     cursor: pointer;
